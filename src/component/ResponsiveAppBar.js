@@ -4,44 +4,30 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
-import MenuItem from '@mui/material/MenuItem';
 import Diversity3Icon from '@mui/icons-material/Diversity3';
 import PersonRoundedIcon from '@mui/icons-material/PersonRounded';
 
-const pages = ['Products', 'Pricing', 'Blog'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const color = {
+  "font": "#000000",
+  "bar": "#FFFFFF",
+  "avatar": "#000000"
+}
 
 function ResponsiveAppBar() {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
 
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
   const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
+    
   };
 
   return (
-    <AppBar position="static" sx={{ bgcolor: "" }}>
+    <AppBar position="static" sx={{ bgcolor: color["bar"] }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           {/* Big screen */}
-          <Diversity3Icon sx={{ display: { xs: 'none', md: 'flex' }, mr: 3 }} />
+          <Diversity3Icon sx={{ display: { xs: 'none', md: 'flex' }, mr: 3, color: color["font"]}}/>
           <Typography
             variant="h6"
             noWrap
@@ -53,7 +39,7 @@ function ResponsiveAppBar() {
               fontFamily: 'Bradley Hand',
               fontWeight: 700,
               letterSpacing: '.3rem',
-              color: 'inherit',
+              color: color["font"],
               textDecoration: 'none',
             }}
           >
@@ -108,7 +94,7 @@ function ResponsiveAppBar() {
               ))}
             </Menu>
           </Box> */}
-          <Diversity3Icon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+          <Diversity3Icon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1, color: color["font"]}} />
           <Typography
             variant="h5"
             noWrap
@@ -121,7 +107,7 @@ function ResponsiveAppBar() {
               fontFamily: 'Bradley Hand',
               fontWeight: 700,
               letterSpacing: '.3rem',
-              color: 'inherit',
+              color: color["font"],
               textDecoration: 'none',
             }}
           >
@@ -132,7 +118,7 @@ function ResponsiveAppBar() {
             {/* The description of the user button */}
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar>
+                <Avatar sx={{bgcolor: color["avatar"]}}>
                   <PersonRoundedIcon />
                 </Avatar >
               </IconButton>
