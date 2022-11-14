@@ -77,7 +77,7 @@ export default function CreatePoll() {
               </Grid>
               <Box >
                 <Button
-                  variant="contained" sx={{ mt: 3, ml: 1 }}>
+                  variant="contained" color="success" sx={{ mt: 3, ml: 1 }}>
                   Add
                 </Button>
               </Box>

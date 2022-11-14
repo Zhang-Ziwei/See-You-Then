@@ -32,7 +32,7 @@ function ResponsiveAppBar({handleChangeState}) {
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' ,'font-style': 'italic'},
-              fontFamily: 'Montez',
+              fontFamily: 'Pacifico',
               fontWeight: 700,
               letterSpacing: '.3rem',
               color: color["font"],
@@ -51,7 +51,7 @@ function ResponsiveAppBar({handleChangeState}) {
               mr: 2,
               display: { xs: 'flex', md: 'none' ,'font-style': 'italic'},
               flexGrow: 1,
-              fontFamily: 'Montez',
+              fontFamily: 'Pacifico',
               fontWeight: 700,
               letterSpacing: '.3rem',
               color: color["font"],

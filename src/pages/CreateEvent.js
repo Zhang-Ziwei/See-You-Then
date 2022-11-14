@@ -26,7 +26,7 @@ export default function CreateEventPage() {
             <Box
               sx={{
                 bgcolor: '#F4D0DB',
-                pt: 3,
+                pt: 4,
                 pb: 2,
               }}
             >
