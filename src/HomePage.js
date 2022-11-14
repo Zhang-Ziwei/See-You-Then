@@ -15,7 +15,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Link from '@mui/material/Link';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import ResponsiveAppBar from "./ResponsiveAppBar";
+import ResponsiveAppBar from "./component/ResponsiveAppBar";
 import Diversity3Icon from '@mui/icons-material/Diversity3';
 import { FaBeer } from 'react-icons/fa';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
@@ -60,49 +60,10 @@ const themeLight = createTheme({
     }
   }
 });
-const buttons = [
-  {
-    title: 'Free',
-    price: '0',
-    description: [
-      '10 users included',
-      '2 GB of storage',
-      'Help center access',
-      'Email support',
-    ],
-    buttonText: 'Sign up for free',
-    buttonVariant: 'outlined',
-  },
-  {
-    title: 'Pro',
-    subheader: 'Most popular',
-    price: '15',
-    description: [
-      '20 users included',
-      '10 GB of storage',
-      'Help center access',
-      'Priority email support',
-    ],
-    buttonText: 'Get started',
-    buttonVariant: 'contained',
-  },
-  {
-    title: 'Enterprise',
-    price: '30',
-    description: [
-      '50 users included',
-      '30 GB of storage',
-      'Help center access',
-      'Phone & email support',
-    ],
-    buttonText: 'Contact us',
-    buttonVariant: 'outlined',
-  },
-];
-
 export default function HomePage() {
   return (
     <ThemeProvider theme={themeLight}>
+      <ResponsiveAppBar />
       <CssBaseline />
       <main>
         <Container sx={{ py: 8, }} maxWidth="md">
@@ -111,21 +72,19 @@ export default function HomePage() {
                 variant="h5"
                 href=""
                 sx={{
+                  mr: 2,
                   display: 'flex',
-                  fontStyle: 'italic',
-                  alignItems: 'center',
+                  'font-style': 'italic',
+                  'align-items': 'center',
                   width: '100%',
                   flexGrow: 1,
-                  fontFamily: 'Bradley Hand',
+                  fontFamily: 'Montez',
                   fontWeight: 1000,
                   letterSpacing: '.3rem',
                   color: '#000000',
                   textDecoration: 'none',
-                  justifyContent: 'center',
-                  fontSize: '2.5rem'
                 }}
               >
-                See You Then
             </Typography>
           </Container>
           <br></br>

@@ -1,0 +1,219 @@
+/* Iphone1453 */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montez:wght@400&display=swap");
+
+p {
+  margin: 0;
+}
+
+.clip-contents {
+  overflow: hidden;
+}
+
+.flex-col-hstart-vstart {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-row-vcenter {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.flex-col-hcenter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.flex-hcenter {
+  justify-content: center;
+}
+
+.iphone-1453 {
+  position: relative;
+  background: linear-gradient(
+      0deg,
+      rgba(250, 232, 237, 0.4),
+      rgba(250, 232, 237, 0.4)
+    ),
+    url(https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/i0kamcqm1z-155%3A5983?alt=media&token=2e06b3a2-d95d-43ac-bd9e-c51e4cf61691),
+    linear-gradient(0deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 1));
+  background-size: 100% 100%;
+  width: 390px;
+  height: 844px;
+}
+
+.group-9 {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  padding: 7px 44px 4px 16px;
+  box-sizing: border-box;
+  background-color: rgba(255, 255, 255, 1);
+  height: 81px;
+  width: 100%;
+}
+
+.group-7 {
+  margin-bottom: 8px;
+  box-sizing: border-box;
+  height: 18px;
+  width: fit-content;
+}
+
+.txt-3810 {
+  font-size: 15px;
+  font-family: Inter, sans-serif;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 1);
+  word-wrap: break-word;
+}
+
+.group-6106 {
+  width: fit-content;
+}
+
+.group-119 {
+  margin-right: 121px;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+.akar-icons-chevron-left {
+  width: 24px;
+  height: 24px;
+  margin-right: 15px;
+}
+
+.txt-215 {
+  font-size: 32px;
+  font-family: Montez, handwriting;
+  font-weight: 400;
+  color: rgba(40, 43, 46, 1);
+  word-wrap: break-word;
+}
+
+.group-69 {
+  width: 36px;
+  height: 36px;
+}
+
+.dayflow-best-friends {
+  position: absolute;
+  top: 278px;
+  left: -9px;
+  width: 409px;
+  height: 262px;
+}
+
+.group-248 {
+  position: absolute;
+  top: 103px;
+  none: 0px;
+  width: 300px;
+  height: 668px;
+}
+
+.group-8 {
+  margin-bottom: 386px;
+  box-sizing: border-box;
+  width: fit-content;
+}
+
+.group-6 {
+  padding: 9px 13px 13px 11px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  background-color: rgba(244, 208, 219, 1);
+  height: 58px;
+  width: 100%;
+}
+
+.txt-956 {
+  font-size: 32px;
+  font-family: Inter, sans-serif;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 1);
+  text-align: center;
+  width: 246px;
+  height: 34px;
+  word-wrap: break-word;
+}
+
+.txt-927 {
+  font-size: 16px;
+  font-family: Inter, sans-serif;
+  font-weight: 600;
+  line-height: 175%;
+  color: rgba(255, 5, 5, 1);
+  text-align: center;
+  width: 259px;
+  word-wrap: break-word;
+}
+
+.txt-164 {
+  font-size: 35px;
+  font-family: Inter, sans-serif;
+  font-weight: 600;
+  line-height: 150%;
+  color: rgba(0, 0, 0, 1);
+  text-align: center;
+  width: 201px;
+  word-wrap: break-word;
+  margin-bottom: 77px;
+}
+
+.group-5 {
+  padding: 12px 19px 10px 13px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  background-color: rgba(194, 49, 82, 1);
+  border: 1px solid rgba(255, 255, 255, 0);
+  height: 65px;
+  width: 100%;
+}
+
+.txt-249 {
+  font-size: 25px;
+  font-family: Inter, sans-serif;
+  font-weight: 700;
+  line-height: 96%;
+  color: rgba(255, 255, 255, 1);
+  text-align: center;
+  width: 266px;
+  height: 41px;
+  word-wrap: break-word;
+}
+
+.vector {
+  position: absolute;
+  top: 5.57%;
+  bottom: 92.54%;
+  left: 91.28%;
+  right: 4.62%;
+  width: 16px;
+  height: 16px;
+}
+
+.right-side {
+  position: absolute;
+  top: 9px;
+  left: 295px;
+  width: 77.4px;
+  height: 13px;
+}
