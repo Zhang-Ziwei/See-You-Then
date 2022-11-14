@@ -1,4 +1,4 @@
-import './App.css';
+import './css/App.css';
 import HomePage from "./pages/HomePage";
 import CreateEvent from "./pages/CreateEvent";
 import CreatePoll from "./pages/CreatePoll";

@@ -9,7 +9,7 @@
 
 @font-face {
   font-family: 'Montez';
-  src: local('Montez'), url(./fonts/Montez-Regular.ttf) format('ttf');
+  src: local('Montez'), url(../fonts/Montez-Regular.ttf) format('ttf');
 }
 
 @media (prefers-reduced-motion: no-preference) {
