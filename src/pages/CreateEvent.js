@@ -9,16 +9,13 @@ import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
 import { useState } from 'react'
-import List from '@mui/joy/List';
-import ListItem from '@mui/joy/ListItem';
-import ListItemDecorator from '@mui/joy/ListItemDecorator';
-import Radio from '@mui/joy/Radio';
-import RadioGroup from '@mui/joy/RadioGroup';
+// import Radio from '@mui/joy/Radio';
+// import RadioGroup from '@mui/joy/RadioGroup';
 import Person from '@mui/icons-material/Person';
 import People from '@mui/icons-material/People';
 import Avatar from '@mui/joy/Avatar';
-import FormControl from '@mui/joy/FormControl';
-import FormLabel from '@mui/joy/FormLabel';
+// import FormControl from '@mui/joy/FormControl';
+// import FormLabel from '@mui/joy/FormLabel';
 import Sheet from '@mui/joy/Sheet';
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import MuiListItem from "@material-ui/core/ListItem";
@@ -26,7 +23,13 @@ import { radioClasses } from '@mui/joy/Radio';
 import CheckCircleRoundedIcon from '@mui/icons-material/CheckCircleRounded';
 import compo12 from '../images/Component_12.png'
 import compo13 from '../images/Component_13.png'
-
+import DeadlineDatePicker from '../component/DeadlineDatePicker'
+import FormHelperText from '@mui/joy/FormHelperText';
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormControl from '@mui/material/FormControl';
+import FormLabel from '@mui/material/FormLabel';
 
 const themeLight = createTheme({
   palette: {
@@ -51,7 +54,11 @@ const buttontheme = createTheme({
 
 
 export default function CreateEventPage() {
-  const [justify, setJustify] = React.useState('flex-start');
+  const [value, setValue] = React.useState('female');
+
+  const handleChange = (event) => {
+    setValue(event.target.value);
+  };
   return (
     <ThemeProvider theme={themeLight}>
       <CssBaseline />
@@ -97,23 +104,6 @@ export default function CreateEventPage() {
                 <div className='optima'>
                   Option:
                 </div>
-                {/* <FormControlLabel
-                  control={<Checkbox color="secondary" name="saveAddress" value="yes" />}
-                  label="Use this address for payment details"
-                /> */}
-                  {/* <RadioGroup aria-label="Your plan" name="people" defaultValue="Individual">
-                    <List
-                      sx={{
-                        minWidth: 240,
-                        '--List-gap': '0.5rem',
-                        '--List-item-paddingY': '1rem',
-                        '--List-item-radius': '8px',
-                        '--List-decorator-size': '32px',
-                      }}
-                    >
-                    </List>
-                  </RadioGroup> */}
-                  <ThemeProvider theme={buttontheme}>
                     {/* <RadioGroup
                     aria-label="platform"
                     defaultValue="2"
@@ -178,9 +168,25 @@ export default function CreateEventPage() {
                        <img src={compo13} width="300"/>
                      </Sheet>
                   </RadioGroup> */}
-                  </ThemeProvider>
+                  <FormControl className='mt'>
+                    {/* <FormLabel id="demo-controlled-radio-buttons-group">Options</FormLabel> */}
+                    <RadioGroup
+                      aria-labelledby="demo-controlled-radio-buttons-group"
+                      name="controlled-radio-buttons-group"
+                      value={value}
+                      onChange={handleChange}
+                    >
+                      <FormControlLabel value="female" control={<Radio />} />
+                      <img src={compo12} width="400" class='center'/>
+                      <FormControlLabel value="male" control={<Radio />}  />
+                      <img src={compo13} width="400" class='center'/>
+                    </RadioGroup>
+                  </FormControl>
               </Grid>
             </Grid>
+            <div class='center mt' >
+            <DeadlineDatePicker />
+            </div>
             <Container maxWidth="sm">
               <Stack
                 sx={{ pt: 4 }}

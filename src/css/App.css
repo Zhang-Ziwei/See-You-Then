@@ -50,3 +50,14 @@
   color: #000000;
 }
 
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.mt{
+  margin-top:  20px;
+}
+
