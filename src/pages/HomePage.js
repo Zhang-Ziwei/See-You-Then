@@ -30,7 +30,7 @@ export default function HomePage({handleChangeState}) {
               >
                 <Button fullWidth variant={'outline-light'} sx={{ width: '100%', height: '96px', display: 'flex', backgroundColor: '#ffffff', 'font-weight': 'bold' }}>
                   <EventNoteIcon sx={{ height: '96px', display: 'flex', 'line-height': '96px', mr: '0.5rem' }} />
-                  create an event
+                  <div className="optima">create an event</div>
                 </Button>
               </Card>
             </Grid>
@@ -43,7 +43,7 @@ export default function HomePage({handleChangeState}) {
               >
                 <Button fullWidth variant={'outline-light'} sx={{ width: '100%', height: '96px', display: 'flex', backgroundColor: '#ffffff', 'font-weight': 'bold' }}>
                   <HowToVoteIcon sx={{ height: '96px', display: 'flex', 'line-height': '96px', mr: '0.5rem'}} />
-                  create a poll
+                  <div className="optima">create a poll</div>
                 </Button>
               </Card>
             </Grid>
@@ -56,7 +56,7 @@ export default function HomePage({handleChangeState}) {
               >
                 <Button fullWidth variant={'outline-light'} sx={{ width: '100%', height: '96px', display: 'flex', backgroundColor: '#ffffff', 'font-weight': 'bold' }}>
                   <CalendarMonthIcon sx={{ height: '96px', display: 'flex', 'line-height': '96px', mr: '0.5rem'}} />
-                  decide the time
+                  <div className="optima">decide the time</div>
                 </Button>
               </Card>
             </Grid>

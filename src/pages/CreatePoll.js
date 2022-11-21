@@ -8,6 +8,7 @@ import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import * as React from 'react';
 import Stack from '@mui/material/Stack';
+import AddIcon from '@mui/icons-material/Add';
 
 
 const themeLight = createTheme({
@@ -17,6 +18,20 @@ const themeLight = createTheme({
     }
   }
 });
+
+const buttontheme = createTheme({
+  palette: {
+    pinkbutton: {
+      main: '#C23152',
+      contrastText: "#fff"
+    },
+    pinktextfield:{
+      main: '#DA94A4'
+    }
+  },
+});
+
+
 export default function CreatePoll() {
   return (
     <ThemeProvider theme={themeLight}>
@@ -27,8 +42,9 @@ export default function CreatePoll() {
             <Box
               sx={{
                 bgcolor: '#F4D0DB',
-                pt: 3,
+                pt: 4,
                 pb: 2,
+                borderRadius: 3,
               }}
             >
               <Typography
@@ -38,11 +54,12 @@ export default function CreatePoll() {
                 color="text.primary"
                 gutterBottom
               >
-                Create an Poll
+                <div className="optima" align="center">Create a Poll</div>
               </Typography>
             </Box>
-            <Grid container spacing={3}>
+            <Grid container spacing={2} sx={{py:4}}>
               <Grid item xs={12} sm={12}>
+              <ThemeProvider theme={buttontheme}>
                 <TextField
                   required
                   id="pollName"
@@ -50,10 +67,14 @@ export default function CreatePoll() {
                   label="Poll Name"
                   fullWidth
                   autoComplete="given-name"
-                  variant="standard"
+                  color="pinktextfield"
                 />
+                </ThemeProvider>
               </Grid>
-              <Grid item xs={12} sm={6}>
+              <Grid item xs={12} sm={12}>
+                <div className='optima'>
+                Options:
+                </div>
                 <TextField
                   required
                   id="option1"
@@ -64,7 +85,7 @@ export default function CreatePoll() {
                   variant="standard"
                 />
               </Grid>
-              <Grid item xs={12} sm={6}>
+              <Grid item xs={12} sm={12}>
                 <TextField
                   required
                   id="option2"
@@ -75,12 +96,12 @@ export default function CreatePoll() {
                   variant="standard"
                 />
               </Grid>
-              <Box >
+              <Grid item xs={12} sm={12}>
                 <Button
-                  variant="contained" color="success" sx={{ mt: 3, ml: 1 }}>
+                  variant="contained" color="success" sx={{ mt: 2}} startIcon={<AddIcon />}>
                   Add
                 </Button>
-              </Box>
+              </Grid>
               <Grid item xs={12}>
                 {/* <FormControlLabel
                   control={<Checkbox color="secondary" name="saveAddress" value="yes" />}
@@ -93,9 +114,11 @@ export default function CreatePoll() {
                 sx={{ pt: 4 }}
                 direction="row"
                 spacing={2}
-                justifyContent="center"
+                justifyContent="flex-end"
               >
-                <Button variant="contained">Next</Button>
+               <ThemeProvider theme={buttontheme}>
+                 <Button variant="contained" color="pinkbutton">Next</Button>
+                </ThemeProvider>
               </Stack>
             </Container>
           </Container>

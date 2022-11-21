@@ -17,7 +17,21 @@ const themeLight = createTheme({
     }
   }
 });
+
+const buttontheme = createTheme({
+  palette: {
+    pinkbutton: {
+      main: '#C23152',
+      contrastText: "#fff"
+    },
+    pinktextfield:{
+      main: '#DA94A4'
+    }
+  },
+});
+
 export default function DecideTime() {
+
   return (
     <ThemeProvider theme={themeLight}>
       <CssBaseline />
@@ -29,6 +43,7 @@ export default function DecideTime() {
                 bgcolor: '#F4D0DB',
                 pt: 3,
                 pb: 2,
+                borderRadius: 3,
               }}
             >
               <Typography
@@ -38,11 +53,12 @@ export default function DecideTime() {
                 color="text.primary"
                 gutterBottom
               >
-                Decide Event Time
+                 <div className="optima" align="center">Decide Event Time</div>
               </Typography>
             </Box>
-            <Grid container spacing={3}>
+            <Grid container spacing={3} sx={{py:3}}>
               <Grid item xs={12} sm={12}>
+              <ThemeProvider theme={buttontheme}>
                 <TextField
                   required
                   id="eventName"
@@ -51,7 +67,9 @@ export default function DecideTime() {
                   fullWidth
                   autoComplete="given-name"
                   variant="standard"
+                  color="pinktextfield"
                 />
+                </ThemeProvider>
               </Grid>
               <Grid item xs={12}>
                 {/* <FormControlLabel
@@ -65,9 +83,11 @@ export default function DecideTime() {
                 sx={{ pt: 4 }}
                 direction="row"
                 spacing={2}
-                justifyContent="center"
+                justifyContent="flex-end"
               >
-                <Button variant="contained">Next</Button>
+                <ThemeProvider theme={buttontheme}>
+                 <Button variant="contained" color="pinkbutton">Next</Button>
+                </ThemeProvider>
               </Stack>
             </Container>
           </Container>
