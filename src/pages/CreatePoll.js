@@ -4,10 +4,12 @@ import Container from '@mui/material/Container';
 import CssBaseline from '@mui/material/CssBaseline';
 import Grid from '@mui/material/Grid';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import TextField from '@mui/material/TextField';
-import Typography from '@mui/material/Typography';
 import * as React from 'react';
 import Stack from '@mui/material/Stack';
+import Title from '../component/Title'
+import Item from '../component/Item'
+import { useState } from 'react';
+import TextField from '@mui/material/TextField';
 
 
 const themeLight = createTheme({
@@ -17,76 +19,69 @@ const themeLight = createTheme({
     }
   }
 });
+
+
 export default function CreatePoll() {
+
+  const [numOption, setNumOption] = useState(1);
+  const [items, setItems] = useState(['']);
+
+  const handleAdd = () => {
+    setNumOption(numOption+1);
+    setItems([...items, '']);
+  }
+
+  const handleDelete = (index) => {
+    setNumOption(numOption-1);
+    let tmp = items;
+    tmp.splice(index, 1);
+    setItems(tmp);
+  }
+
+  const handleChange = (e, index) => {
+    let tmp = items;
+    tmp[index] = e.target.value;
+    setItems(tmp);
+    console.log(tmp);
+  }
+
   return (
     <ThemeProvider theme={themeLight}>
       <CssBaseline />
       <main>
         <Container sx={{ py: 8, }} maxWidth="md">
           <Container maxWidth="sm">
-            <Box
-              sx={{
-                bgcolor: '#F4D0DB',
-                pt: 3,
-                pb: 2,
-              }}
-            >
-              <Typography
-                component="h1"
-                variant="h4"
-                align="center"
-                color="text.primary"
-                gutterBottom
-              >
-                Create an Poll
-              </Typography>
-            </Box>
-            <Grid container spacing={3}>
-              <Grid item xs={12} sm={12}>
+            <Title titleName={"Create a Poll"}/>
+            <Grid container spacing={3} sx={{mt: 2}}>
+            <Grid item xs={12} sm={12} sx={{display: 'flex', justifyContent: 'start', mx: 3}}>
                 <TextField
-                  required
-                  id="pollName"
-                  name="pollName"
-                  label="Poll Name"
-                  fullWidth
-                  autoComplete="given-name"
-                  variant="standard"
+                    required
+                    id={"Poll Name"}
+                    name={"Poll Name"}
+                    label={"Poll Name"}
+                    fullWidth
+                    // sx={{width: '70%'}}
+                    autoComplete="given-name"
+                    variant="standard"
                 />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  required
-                  id="option1"
-                  name="option1"
-                  label="option 1"
-                  fullWidth
-                  autoComplete="given-name"
-                  variant="standard"
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  required
-                  id="option2"
-                  name="option2"
-                  label="option 2"
-                  fullWidth
-                  autoComplete="given-name"
-                  variant="standard"
-                />
-              </Grid>
+            </Grid>
+              {items.map((item, index) => {
+                return (
+                  <Item 
+                    key={index} 
+                    name={`Option ${index+1}`} 
+                    index={index} 
+                    handleDelete={handleDelete}
+                    handleChange={handleChange}
+                  />
+                )
+              })}
               <Box >
                 <Button
-                  variant="contained" sx={{ mt: 3, ml: 1 }}>
+                  variant="contained" sx={{ mt: 5, ml: 3 }} onClick={handleAdd}>
                   Add
                 </Button>
               </Box>
-              <Grid item xs={12}>
-                {/* <FormControlLabel
-                  control={<Checkbox color="secondary" name="saveAddress" value="yes" />}
-                  label="Use this address for payment details"
-                /> */}
-              </Grid>
             </Grid>
             <Container maxWidth="sm">
               <Stack
