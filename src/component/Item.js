@@ -1,24 +1,39 @@
 import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 import CloseIcon from '@mui/icons-material/Close';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+
+const buttontheme = createTheme({
+    palette: {
+      pinkbutton: {
+        main: '#C23152',
+        contrastText: "#fff"
+      },
+      pinktextfield:{
+        main: '#DA94A4'
+      }
+    },
+  });
 
 export default function Item({name, index, handleDelete, handleChange}) {
     return (
         <Grid item xs={12} sm={12} sx={{display: 'flex', justifyContent: 'start', mx: 3}}>
-            <TextField
-                required
-                id={name}
-                name={name}
-                label={name}
-                key={index}
-                fullWidth
-                // sx={{width: '70%'}}
-                autoComplete="given-name"
-                variant="standard"
-                onChange={(e) => handleChange(e, index)}
-            />
+            <ThemeProvider theme={buttontheme}>
+                <TextField
+                    required
+                    id={name}
+                    name={name}
+                    label={name}
+                    key={index}
+                    fullWidth
+                    autoComplete="given-name"
+                    color="pinktextfield"
+                    sx={{ml: 3}}
+                    onChange={(e) => handleChange(e, index)}
+                />
+            </ThemeProvider>
             <CloseIcon 
-                sx={{mt: 3, position: 'relative', right: '1px', "&:hover": {transform: 'scale(1.2)'}}} 
+                sx={{mt: 2, ml:2, position: 'relative', right: '1px', "&:hover": {transform: 'scale(1.2)'}}} 
                 onClick={() => handleDelete(index)}
             />
         </Grid>

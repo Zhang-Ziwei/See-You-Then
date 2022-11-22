@@ -20,6 +20,19 @@ const themeLight = createTheme({
   }
 });
 
+const buttontheme = createTheme({
+  palette: {
+    pinkbutton: {
+      main: '#C23152',
+      contrastText: "#fff"
+    },
+    pinktextfield:{
+      main: '#DA94A4'
+    }
+  },
+});
+
+
 
 export default function CreatePoll() {
 
@@ -54,16 +67,17 @@ export default function CreatePoll() {
             <Title titleName={"Create a Poll"}/>
             <Grid container spacing={3} sx={{mt: 2}}>
             <Grid item xs={12} sm={12} sx={{display: 'flex', justifyContent: 'start', mx: 3}}>
-                <TextField
-                    required
-                    id={"Poll Name"}
-                    name={"Poll Name"}
-                    label={"Poll Name"}
-                    fullWidth
-                    // sx={{width: '70%'}}
-                    autoComplete="given-name"
-                    variant="standard"
-                />
+                <ThemeProvider theme={buttontheme}>
+                  <TextField
+                      required
+                      id={"Poll Name"}
+                      name={"Poll Name"}
+                      label={"Poll Name"}
+                      fullWidth
+                      autoComplete="given-name"
+                      color="pinktextfield"
+                  />
+                </ThemeProvider>
             </Grid>
               {items.map((item, index) => {
                 return (
@@ -77,10 +91,12 @@ export default function CreatePoll() {
                 )
               })}
               <Box >
-                <Button
-                  variant="contained" sx={{ mt: 5, ml: 3 }} onClick={handleAdd}>
-                  Add
-                </Button>
+                <ThemeProvider theme={buttontheme}>
+                  <Button
+                    variant="contained" color="pinkbutton" sx={{ mt: 5, ml: 3 }} onClick={handleAdd}>
+                    Add
+                  </Button>
+                </ThemeProvider>
               </Box>
             </Grid>
             <Container maxWidth="sm">
@@ -90,7 +106,9 @@ export default function CreatePoll() {
                 spacing={2}
                 justifyContent="center"
               >
-                <Button variant="contained">Next</Button>
+                <ThemeProvider theme={buttontheme}>
+                  <Button variant="contained" color="pinkbutton">Next</Button>
+                </ThemeProvider>
               </Stack>
             </Container>
           </Container>

@@ -8,6 +8,8 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import * as React from 'react';
+import Calendar from '../calendar/Calendar'
+import { useState } from 'react';
 
 
 const themeLight = createTheme({
@@ -18,6 +20,23 @@ const themeLight = createTheme({
   }
 });
 export default function DecideTime() {
+  const [mode, setMode] = useState('loading')
+  // Login data
+  const [token, setToken] = useState("")
+  const [userName, setUserName] = useState("")
+  // All schedule
+  const [schedule, setSchedule] = useState([])
+  // View state of group or personal
+  const [state, setState] = useState("all")
+  // Group name
+  const [group, setGroup] = useState("")
+  // Record that if we have reequest data
+	const [requested, setRequested] = useState(false)
+
+  const sendData = (data) => {
+    
+  }
+
   return (
     <ThemeProvider theme={themeLight}>
       <CssBaseline />
@@ -60,6 +79,16 @@ export default function DecideTime() {
                 /> */}
               </Grid>
             </Grid>
+            <Calendar
+              mode={mode} setMode={setMode}
+              token={token} setToken={setToken}
+              userName={userName} setUserName={setUserName}
+              schedule={schedule} setSchedule={setSchedule}
+              state={state} setState={setState}
+              group={group} setGroup={setGroup}
+              requested={requested} setRequested={setRequested}
+              sendData={sendData}
+            />
             <Container maxWidth="sm">
               <Stack
                 sx={{ pt: 4 }}
@@ -75,5 +104,6 @@ export default function DecideTime() {
       </main>
       {/* <Footor/> */}
     </ThemeProvider>
+    
   );
 }
