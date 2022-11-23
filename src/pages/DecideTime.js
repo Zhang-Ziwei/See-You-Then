@@ -9,7 +9,12 @@ import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import * as React from 'react';
 import { Dayjs } from 'dayjs';
-
+import DeadlineDatePicker from '../component/DeadlineDatePicker'
+import 'react-day-picker/dist/style.css';
+import { DayPicker } from 'react-day-picker';
+import { format } from 'date-fns';
+import { useState } from 'react';
+import Calendar from '../calendar/Calendar';
 
 const themeLight = createTheme({
   palette: {
@@ -32,7 +37,23 @@ const buttontheme = createTheme({
 });
 
 export default function DecideTime() {
+  // const [selectedDay, setSelectedDay] = useState<Date>(null);
+  const [mode, setMode] = useState('loading')
+  // Login data
+  const [token, setToken] = useState("")
+  const [userName, setUserName] = useState("")
+  // All schedule
+  const [schedule, setSchedule] = useState([])
+  // View state of group or personal
+  const [state, setState] = useState("all")
+  // Group name
+  const [group, setGroup] = useState("")
+  // Record that if we have reequest data
+	const [requested, setRequested] = useState(false)
 
+  const sendData = (data) => {
+    
+  }
   return (
     <ThemeProvider theme={themeLight}>
       <CssBaseline />
@@ -67,7 +88,7 @@ export default function DecideTime() {
                   label="Event Name"
                   fullWidth
                   autoComplete="given-name"
-                  variant="standard"
+                  // variant="standard"
                   color="pinktextfield"
                 />
                 </ThemeProvider>
@@ -77,8 +98,29 @@ export default function DecideTime() {
                   control={<Checkbox color="secondary" name="saveAddress" value="yes" />}
                   label="Use this address for payment details"
                 /> */}
+                {/* <DayPicker
+                mode="single"
+                selected={selectedDay}
+                onSelect={setSelectedDay}
+              /> */}
               </Grid>
             </Grid>
+            <div class="center optima_text date_padding" >
+              Select the dates you want:
+            </div>
+            <Calendar
+              mode={mode} setMode={setMode}
+              token={token} setToken={setToken}
+              userName={userName} setUserName={setUserName}
+              schedule={schedule} setSchedule={setSchedule}
+              state={state} setState={setState}
+              group={group} setGroup={setGroup}
+              requested={requested} setRequested={setRequested}
+              sendData={sendData}
+            />
+            <div class='center mt' >
+              <DeadlineDatePicker />
+            </div>
             <Container maxWidth="sm">
               <Stack
                 sx={{ pt: 4 }}

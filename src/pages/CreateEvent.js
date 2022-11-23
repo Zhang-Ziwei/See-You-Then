@@ -30,6 +30,8 @@ import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
+import { flexbox } from '@mui/system';
+import { pink } from '@mui/material/colors';
 
 const themeLight = createTheme({
   palette: {
@@ -101,7 +103,7 @@ export default function CreateEventPage() {
               </Grid>
               <Grid item xs={12}>
 
-                <div className='optima'>
+                <div class='optima_text'>
                   Option:
                 </div>
                     {/* <RadioGroup
@@ -176,10 +178,24 @@ export default function CreateEventPage() {
                       value={value}
                       onChange={handleChange}
                     >
-                      <FormControlLabel value="female" control={<Radio />} />
-                      <img src={compo12} width="400" class='center'/>
-                      <FormControlLabel value="male" control={<Radio />}  />
-                      <img src={compo13} width="400" class='center'/>
+                      <Grid container spacing={2} sx={{pt:5}}>
+                        <Grid item xs={4} sx={{display: 'flex', flexDirection: 'row',alignItems: 'center'}}>
+                          <FormControlLabel value="female" control={<Radio  sx={{ color: pink[800],'&.Mui-checked': {color: pink[600]  },  }} />} />
+                        </Grid>
+                        <Grid item xs={8}>
+                          <img src={compo12} width="300" />
+                        </Grid>
+                      </Grid>
+                      <Grid container spacing={2} sx={{py:5}}>
+                        <Grid item xs={4} sx={{display: 'flex', flexDirection: 'row',alignItems: 'center'}}>
+                          <FormControlLabel value="male" control={<Radio  sx={{ color: pink[800],'&.Mui-checked': {color: pink[600]  },  }}/>} />
+                        </Grid>
+                        <Grid item xs={8}>
+                          <img src={compo13} width="300" />
+                        </Grid>
+                      </Grid>
+                      {/* <FormControlLabel value="male" control={<Radio />}  />
+                      <img src={compo13} width="400" class='center'/> */}
                     </RadioGroup>
                   </FormControl>
               </Grid>
