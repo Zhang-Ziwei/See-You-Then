@@ -56,7 +56,7 @@ const buttontheme = createTheme({
 
 
 export default function CreateEventPage() {
-  const [value, setValue] = React.useState('female');
+  const [value, setValue] = React.useState('binary');
 
   const handleChange = (event) => {
     setValue(event.target.value);
@@ -180,7 +180,7 @@ export default function CreateEventPage() {
                     >
                       <Grid container spacing={2} sx={{pt:5}}>
                         <Grid item xs={4} sx={{display: 'flex', flexDirection: 'row',alignItems: 'center'}}>
-                          <FormControlLabel value="female" control={<Radio  sx={{ color: pink[800],'&.Mui-checked': {color: pink[600]  },  }} />} />
+                          <FormControlLabel value="binary" control={<Radio  sx={{ color: pink[800],'&.Mui-checked': {color: pink[600]  },  }} />} />
                         </Grid>
                         <Grid item xs={8}>
                           <img src={compo12} width="300" />
@@ -188,7 +188,7 @@ export default function CreateEventPage() {
                       </Grid>
                       <Grid container spacing={2} sx={{py:5}}>
                         <Grid item xs={4} sx={{display: 'flex', flexDirection: 'row',alignItems: 'center'}}>
-                          <FormControlLabel value="male" control={<Radio  sx={{ color: pink[800],'&.Mui-checked': {color: pink[600]  },  }}/>} />
+                          <FormControlLabel value="binary+neutral" control={<Radio  sx={{ color: pink[800],'&.Mui-checked': {color: pink[600]  },  }}/>} />
                         </Grid>
                         <Grid item xs={8}>
                           <img src={compo13} width="300" />
