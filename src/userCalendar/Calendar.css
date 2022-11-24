@@ -8,16 +8,12 @@
 /* html {
   font-size: 100%;
 }
-
-
-
 body {
   background-color: #f6f5f1;
   text-rendering: optimizeLegibility;
   font-family: -apple-system, BlinkMacSystemFont, system-ui, "Segoe UI", Roboto, Oxygen, Ubuntu, "Helvetica Neue", sans-serif;
   background-image: linear-gradient(45deg, #f86a6c 0%, #fd588a 100%);
 }
-
 h1 {
   margin: 0.1rem;
   font-size: 2rem;
@@ -223,9 +219,12 @@ img:hover {
   width: 20px;
   margin: 16px 5px 10px 15px;
   grid-column: 1/1;
+  padding-bottom: 5px ;
 }
 
 .calendar__days__nav__selectedMonth {
+  font-family: Optima;
+  font-weight: bold;
   font-size: 25px;
   font-weight: bold;
   margin: 10px 5px 10px 2px;
@@ -237,6 +236,7 @@ img:hover {
   width: 20px;
   margin: 16px 15px 10px 3px;
   grid-column: 3/3;
+  padding-bottom: 5px ;
 }
 
 .calendar__days__nav__today {
@@ -269,9 +269,10 @@ img:hover {
 }
 
 .days__title {
-  /* font-weight: bold; */
+  font-weight: bold;
+  font-family: Optima;
   font-size: small;
-  color:rgb(66, 48, 48);
+  color:rgb(194, 49, 82);
   list-style-type:none;
   display:flex;
   align-items: center;
@@ -279,8 +280,9 @@ img:hover {
   width:14.28%;
   height:100%;
 	float:left;
-  border-style: outset;
-  border-radius: 10px;
+  /* border-style: solid;
+  border-color: #e9c1c9; */
+  border-radius: 30px;
 }
 
 .calendar__days__day__container {
@@ -313,22 +315,85 @@ img:hover {
 }
 
 .days {
+  font-family: Optima;
+  font-weight: bold;
   list-style-type:none;
   display:flex;
   align-items: center;
   justify-content: center;
-  width:14.28%;
+  /* width:14.28%; */
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 51.5px;
 	/* height:16.66%; */
+  height: 51.5px;
   float:left;
-  /* padding: 0rem 0.5rem; */
-  border-right: 1px solid rgba(0, 0, 0, 0.3);
+  padding: 1px;
+  /* border-right: 1px solid rgba(0, 0, 0, 0.3);
   border-bottom: 1px solid rgba(0, 0, 0, 0.3);
-  border-radius: 10px;
+  border-left: 1px solid rgba(0, 0, 0, 0.3);
+  border-top: 1px solid rgba(0, 0, 0, 0.3); */
+  border-radius: 50%;
 }
 
 .days:hover {
-  background-color:rgba(0, 0, 0, 0.3);
+  transform: scale(1.1);
+  background-color:rgba(218, 148, 148, 0.3);
 }
+
+.available {
+  background-color: #8AC926;
+}
+
+.available:hover{
+  background-color: #8AC926;
+}
+
+.uncertain {
+  background-color: #FFCA3A;
+}
+
+.uncertain:hover{
+  background-color: #FFCA3A;
+}
+
+.unavailable {
+  background-color: #FF595E;
+}
+
+.unavailable:hover{
+  background-color: #FF595E;
+}
+
+.selectedDays {
+  font-family: Optima;
+  font-weight: bold;
+  list-style-type:none;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  /* width:14.28%; */
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 51.5px;
+	/* height:16.66%; */
+  height: 51.5px;
+  float:left;
+  padding: 1px;
+  /* border-right: 1px solid rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  border-left: 1px solid rgba(0, 0, 0, 0.3);
+  border-top: 1px solid rgba(0, 0, 0, 0.3); */
+  border-radius: 50%;
+  /* color: #c5351c; */
+  background-color: #c5351c;
+}
+
+.selectedDays:hover {
+  transform: scale(1.1);
+  background-color: #c5351c;
+}
+
 
 .AddBox {
   position: absolute;
@@ -430,4 +495,13 @@ img:hover {
   pointer-events: none;
   opacity: 0.3;
 }
+
+.SelectState:hover {
+  transform: scale(1.1);
+}
+
+.disabledSelectState {
+  opacity: 0.3;
+}
+
 

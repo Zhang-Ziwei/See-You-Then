@@ -9,16 +9,14 @@ const Month = ['', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'
 const dayNum = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
 const CalendarDay = ({
-    clickPlus, addGroup,
     handleLeft, handleRight,
     todayDate, currentDate,
-    state, group, requested,
-    schedule,
-    handleClickOnDay, handleBackToToday
+    handleClickOnDay,
+    ableDay
 }) => {
     
     return (
-        <div className={clickPlus || addGroup? "calendar__days disabled" : "calendar__days"}>
+        <div className="calendar__days">
             <div className="calendar__days__nav">
                 {(parseInt(todayDate.toString().split(' ')[3]) < parseInt(currentDate.year) || (parseInt(todayDate.toString().split(' ')[3]) === parseInt(currentDate.year) && Month.indexOf(todayDate.toString().split(' ')[1]) < Month.indexOf(currentDate.month)))? <img src={leftArrow} className="leftArrow" onClick={() => handleLeft()} /> : <></>}
                 <div className="calendar__days__nav__selectedMonth">
@@ -40,10 +38,9 @@ const CalendarDay = ({
                     <li className="days__title">Sat</li>
                 </ul>
                 <Days 
-                    state={state} group={group} requested={requested}
-                    schedule={schedule}
                     todayDate={todayDate} currentDate={currentDate}
                     handleClickOnDay={handleClickOnDay}
+                    ableDay={ableDay}
                 />
             </div>
         </div>

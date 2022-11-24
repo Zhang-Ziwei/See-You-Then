@@ -4,29 +4,10 @@ const Month = ['', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'
 const dayNum = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
 const Days = ({
-    state, group, requested,
-    schedule,
     todayDate, currentDate,
-    handleClickOnDay
+    handleClickOnDay,
+    ableDay
 }) => {
-
-    const temp = schedule
-    const [mySchedule, setMySchedule] = useState([...temp]);
-    useEffect(() => {
-        if(state == 'all'){
-            let temp = schedule
-            setMySchedule([...temp])
-        }else if(state == 'personal'){
-            let temp = schedule
-            temp = temp.filter(e => (e.visibility === 0))
-            setMySchedule([...temp])
-        }else if(state == 'group'){
-            let temp = schedule
-            temp = temp.filter(e => (e.name === group && e.visibility === 1))
-            setMySchedule([...temp])
-        }
-    }, [requested, state, schedule, group])
-
     const currentMonth = Month.indexOf(currentDate.month);
     const firstDay = new Date(`${currentDate.year}-${currentDate.month}-1`).getDay();
     // push blank until the day(Mon to Sun) is the first day's day.
@@ -35,18 +16,19 @@ const Days = ({
         days.push((<li key={-i} className="days__disabled" id={i}></li>));
     }
     for (let day = 1; day <= dayNum[currentMonth]; day++) {
-        // numnber of task of this day
-        const n_task = mySchedule.filter(element => 
-            element.Year === parseInt(currentDate.year) && element.Month === Month.indexOf(currentDate.month) && element.Date === day
-        ).length
-        
+        let date;
+        if(day < 10) {
+            date = `0${day}`
+        } else {
+            date =`${day}`
+        }
+        const id = `${currentDate.year} ${Month.indexOf(currentDate.month)} ${date}`
         days.push((
-            <li key={day} className="days" id={day} onClick={() => handleClickOnDay(day)}>
+            <li key={day} className={(ableDay.includes(id))? "selectedDays"  : "days"} id={id} onClick={(day < parseInt(todayDate.toString().split(' ')[2]) && Month.indexOf(todayDate.toString().split(' ')[1]) == currentMonth) ?  () => {} : handleClickOnDay}>
                 <p className={(day < parseInt(todayDate.toString().split(' ')[2]) && Month.indexOf(todayDate.toString().split(' ')[1]) == currentMonth) ? "disabled day" : "day"}>{day}</p>
             </li>
         ))
     }
-
     return (
         <ul className="calendar__days__day__container">
             {days.map(item => item)}

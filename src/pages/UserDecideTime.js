@@ -8,7 +8,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import * as React from 'react';
-import Calendar from '../orginizerCalendar/Calendar'
+import Calendar from '../userCalendar/Calendar'
 import { useState } from 'react';
 
 
@@ -20,12 +20,32 @@ const themeLight = createTheme({
   }
 });
 
+const buttontheme = createTheme({
+  palette: {
+    availableButton: {
+      main: '#8AC926',
+      contrastText: "#fff"
+    },
+    uncertainButton: {
+      main: '#FFCA3A',
+      contrastText: "#fff"
+    },
+    unavailableButton: {
+      main: '#FF595E',
+      contrastText: "#fff"
+    },
+    pinkbutton: {
+      main: '#C23152',
+      contrastText: "#fff"
+    },
+  },
+});
 
 
-export default function DecideTime({
-  handleChangeState,
-  handleClickOnDay,
-  ableDay
+export default function UserDecideTime({
+  handleUserClickOnDay,
+  ableDay,
+  handleChangeSelectedState
 }) {
 
   return (
@@ -71,7 +91,7 @@ export default function DecideTime({
               </Grid>
             </Grid>
             <Calendar
-              handleClickOnDay={handleClickOnDay}
+              handleUserClickOnDay={handleUserClickOnDay}
               ableDay={ableDay}
             />
             <Container maxWidth="sm">
@@ -81,7 +101,23 @@ export default function DecideTime({
                 spacing={2}
                 justifyContent="center"
               >
-                <Button variant="contained" onClick={() => handleChangeState(4)}>Next</Button>
+                <ThemeProvider theme={buttontheme}>
+                  <Button id={0} variant="contained" color="availableButton" className="SelectState" onClick={handleChangeSelectedState}>Available</Button>
+                  <Button id={1} variant="contained" color="uncertainButton" className="disabledSelectState SelectState" onClick={handleChangeSelectedState}>Uncertain</Button>
+                  <Button id={2} variant="contained" color="unavailableButton" className="disabledSelectState SelectState" onClick={handleChangeSelectedState}>Unavailable</Button>
+                </ThemeProvider>
+              </Stack>
+            </Container>
+            <Container maxWidth="sm">
+              <Stack
+                sx={{ pt: 4 }}
+                direction="row"
+                spacing={2}
+                justifyContent="center"
+              >
+                <ThemeProvider theme={buttontheme}>
+                  <Button variant="contained" color="pinkbutton">Next</Button>
+                </ThemeProvider>
               </Stack>
             </Container>
           </Container>
