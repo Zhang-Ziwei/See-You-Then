@@ -183,7 +183,7 @@ export default function CreateEventPage() {
                           <FormControlLabel value="binary" control={<Radio  sx={{ color: pink[800],'&.Mui-checked': {color: pink[600]  },  }} />} />
                         </Grid>
                         <Grid item xs={8}>
-                          <img src={compo12} width="300" />
+                          <img src={compo12} width="85%" />
                         </Grid>
                       </Grid>
                       <Grid container spacing={2} sx={{py:5}}>
@@ -191,7 +191,7 @@ export default function CreateEventPage() {
                           <FormControlLabel value="binary+neutral" control={<Radio  sx={{ color: pink[800],'&.Mui-checked': {color: pink[600]  },  }}/>} />
                         </Grid>
                         <Grid item xs={8}>
-                          <img src={compo13} width="300" />
+                          <img src={compo13} width="85%" />
                         </Grid>
                       </Grid>
                       {/* <FormControlLabel value="male" control={<Radio />}  />

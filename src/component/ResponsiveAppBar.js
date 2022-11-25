@@ -31,10 +31,10 @@ function ResponsiveAppBar({handleChangeState}) {
             href='/'
             sx={{
               mr: 2,
-              display: { xs: 'none', md: 'flex' ,'font-style': 'italic'},
+              display: { xs: 'none', md: 'flex' ,'font-style': 'cursive'},
               fontFamily: 'Pacifico',
               fontWeight: 700,
-              letterSpacing: '.3rem',
+              letterSpacing: '.1rem',
               color: color["font"],
               textDecoration: 'none',
             }}

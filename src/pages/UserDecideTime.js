@@ -8,15 +8,9 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import * as React from 'react';
-import { Dayjs } from 'dayjs';
-import DeadlineDatePicker from '../component/DeadlineDatePicker'
-import 'react-day-picker/dist/style.css';
-import { DayPicker } from 'react-day-picker';
-import { format } from 'date-fns';
+import Calendar from '../userCalendar/Calendar'
 import { useState } from 'react';
-import Calendar from '../orginizerCalendar/Calendar';
-import compo14 from '../images/Component_14.png'
-import Avatar from '@mui/material/Avatar';
+
 
 const themeLight = createTheme({
   palette: {
@@ -26,40 +20,35 @@ const themeLight = createTheme({
   }
 });
 
+
 const buttontheme = createTheme({
   palette: {
+    availableButton: {
+      main: '#8AC926',
+      contrastText: "#000",
+    },
+    uncertainButton: {
+      main: '#FFCA3A',
+      contrastText: "#000"
+    },
+    unavailableButton: {
+      main: '#FF595E',
+      contrastText: "#000"
+    },
     pinkbutton: {
       main: '#C23152',
       contrastText: "#fff"
     },
-    pinktextfield:{
-      main: '#DA94A4'
-    }
   },
 });
 
-export default function DecideTime({
-  handleChangeState,
-  handleClickOnDay,
-  ableDay
-}) {
-  // const [selectedDay, setSelectedDay] = useState<Date>(null);
-  const [mode, setMode] = useState('loading')
-  // Login data
-  const [token, setToken] = useState("")
-  const [userName, setUserName] = useState("")
-  // All schedule
-  const [schedule, setSchedule] = useState([])
-  // View state of group or personal
-  const [state, setState] = useState("all")
-  // Group name
-  const [group, setGroup] = useState("")
-  // Record that if we have reequest data
-	const [requested, setRequested] = useState(false)
 
-  const sendData = (data) => {
-    
-  }
+export default function UserDecideTime({
+  handleUserClickOnDay,
+  ableDay,
+  handleChangeSelectedState
+}) {
+
   return (
     <ThemeProvider theme={themeLight}>
       <CssBaseline />
@@ -81,12 +70,12 @@ export default function DecideTime({
                 color="text.primary"
                 gutterBottom
               >
-                 <div className="optima" align="center">Decide Event Time</div>
+                 <div className="optima" align="center">2023 New Year CountDown</div>
               </Typography>
             </Box>
-            <Grid container spacing={3} sx={{py:3}}>
-              <Grid item xs={12} sm={12}>
-              <ThemeProvider theme={buttontheme}>
+            <div className="optima_deadline" align="center">Deadline: 2022/12/01 23:59</div>
+            <Grid container spacing={3}>
+              {/* <Grid item xs={12} sm={12}>
                 <TextField
                   required
                   id="eventName"
@@ -94,39 +83,51 @@ export default function DecideTime({
                   label="Event Name"
                   fullWidth
                   autoComplete="given-name"
-                  // variant="standard"
-                  color="pinktextfield"
+                  variant="standard"
                 />
-                </ThemeProvider>
-              </Grid>
+              </Grid> */}
               <Grid item xs={12}>
+                {/* <FormControlLabel
+                  control={<Checkbox color="secondary" name="saveAddress" value="yes" />}
+                  label="Use this address for payment details"
+                /> */}
               </Grid>
             </Grid>
-            <div class="center optima_text date_padding" >
-              Select the dates you want:
-            </div>
             <Calendar
-                 handleClickOnDay={handleClickOnDay}
-                 ableDay={ableDay}
+              handleUserClickOnDay={handleUserClickOnDay}
+              ableDay={ableDay}
             />
-            <div class='center mt' >
-              <DeadlineDatePicker />
-            </div>
             <Container maxWidth="sm">
               <Stack
                 sx={{ pt: 4 }}
                 direction="row"
                 spacing={2}
-                justifyContent="flex-end"
+                justifyContent="center"
               >
                 <ThemeProvider theme={buttontheme}>
-                 <Button variant="contained" color="pinkbutton" onClick={() => handleChangeState(4)}>Next</Button>
+                  <Button id={0} variant="contained" color="availableButton" className="SelectState" onClick={handleChangeSelectedState}>Available</Button>
+                  <Button id={1} variant="contained" color="uncertainButton" className="disabledSelectState SelectState" onClick={handleChangeSelectedState}>Uncertain</Button>
+                  <Button id={2} variant="contained" color="unavailableButton" className="disabledSelectState SelectState" onClick={handleChangeSelectedState}>Unavailable</Button>
+                </ThemeProvider>
+              </Stack>
+            </Container>
+            <Container maxWidth="sm">
+              <Stack
+                sx={{ pt: 4 }}
+                direction="row"
+                spacing={2}
+                justifyContent="center"
+              >
+                <ThemeProvider theme={buttontheme}>
+                  <Button variant="contained" color="pinkbutton" >Next</Button>
                 </ThemeProvider>
               </Stack>
             </Container>
           </Container>
         </Container>
       </main>
+      {/* <Footor/> */}
     </ThemeProvider>
+    
   );
 }
