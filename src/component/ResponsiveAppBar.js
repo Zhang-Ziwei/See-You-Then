@@ -31,10 +31,10 @@ function ResponsiveAppBar({handleChangeState}) {
             href='/'
             sx={{
               mr: 2,
-              display: { xs: 'none', md: 'flex' ,'font-style': 'italic'},
-              fontFamily: 'Montez',
+              display: { xs: 'none', md: 'flex' ,'font-style': 'cursive'},
+              fontFamily: 'Pacifico',
               fontWeight: 700,
-              letterSpacing: '.3rem',
+              letterSpacing: '.1rem',
               color: color["font"],
               textDecoration: 'none',
             }}
@@ -51,7 +51,7 @@ function ResponsiveAppBar({handleChangeState}) {
               mr: 2,
               display: { xs: 'flex', md: 'none' ,'font-style': 'italic'},
               flexGrow: 1,
-              fontFamily: 'Montez',
+              fontFamily: 'Pacifico',
               fontWeight: 700,
               letterSpacing: '.3rem',
               color: color["font"],

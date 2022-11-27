@@ -2,6 +2,7 @@ import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 import CloseIcon from '@mui/icons-material/Close';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 const buttontheme = createTheme({
     palette: {
@@ -13,6 +14,9 @@ const buttontheme = createTheme({
         main: '#DA94A4'
       }
     },
+    input: {
+      background: "rgb(244, 208, 219)"
+    }
   });
 
 export default function Item({name, index, handleDelete, handleChange}) {
@@ -28,12 +32,13 @@ export default function Item({name, index, handleDelete, handleChange}) {
                     fullWidth
                     autoComplete="given-name"
                     color="pinktextfield"
-                    sx={{ml: 3}}
+                    sx={{ml: 3, my:1}}
                     onChange={(e) => handleChange(e, index)}
+                    variant = "standard"
                 />
             </ThemeProvider>
-            <CloseIcon 
-                sx={{mt: 2, ml:2, position: 'relative', right: '1px', "&:hover": {transform: 'scale(1.2)'}}} 
+            <DeleteIcon 
+                sx={{mt: 2, ml:2, position: 'relative', right: '1px', "&:hover": {transform: 'scale(1.2)'}, color: 'red'}} 
                 onClick={() => handleDelete(index)}
             />
         </Grid>

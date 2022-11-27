@@ -1,0 +1,90 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@font-face {
+  font-family: 'Montez';
+  src: local('Montez'), url(../fonts/Montez-Regular.ttf) format('ttf');
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.optima_text {
+
+  font-family: Optima;
+  font-size: 20px;
+  font-weight: bold;
+  color: #000000;
+}
+
+.optima {
+
+  font-family: Optima;
+  font-size: 32;
+  font-weight: bold;
+  color: #000000;
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.mt{
+  margin-top:  20px;
+}
+
+.date_padding{
+  padding-left: 20px;
+}
+
+.option_padding{
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.optima_deadline{
+  font-family: Optima;
+  font-size: 20px;
+  font-weight: bold;
+  color: red;
+}
+
+.red_text{
+  color: red;
+  font-size: 30px;
+}

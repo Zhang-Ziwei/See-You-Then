@@ -11,6 +11,15 @@ import * as React from 'react';
 import Calendar from '../orginizerCalendar/Calendar'
 import { useState } from 'react';
 
+// import { Dayjs } from 'dayjs';
+// import DeadlineDatePicker from '../component/DeadlineDatePicker'
+// import 'react-day-picker/dist/style.css';
+// import { DayPicker } from 'react-day-picker';
+// import { format } from 'date-fns';
+// import { useState } from 'react';
+// import Calendar from '../orginizerCalendar/Calendar';
+// import compo14 from '../images/Component_14.png'
+// import Avatar from '@mui/material/Avatar';
 
 const themeLight = createTheme({
   palette: {
@@ -20,14 +29,23 @@ const themeLight = createTheme({
   }
 });
 
-
+const buttontheme = createTheme({
+  palette: {
+    pinkbutton: {
+      main: '#C23152',
+      contrastText: "#fff"
+    },
+    pinktextfield:{
+      main: '#DA94A4'
+    }
+  },
+});
 
 export default function DecideTime({
   handleChangeState,
   handleClickOnDay,
   ableDay
 }) {
-
   return (
     <ThemeProvider theme={themeLight}>
       <CssBaseline />
@@ -39,6 +57,7 @@ export default function DecideTime({
                 bgcolor: '#F4D0DB',
                 pt: 3,
                 pb: 2,
+                borderRadius: 3,
               }}
             >
               <Typography
@@ -48,11 +67,12 @@ export default function DecideTime({
                 color="text.primary"
                 gutterBottom
               >
-                Decide Event Time
+                 <div className="optima" align="center">Decide Event Time</div>
               </Typography>
             </Box>
-            <Grid container spacing={3}>
+            <Grid container spacing={3} sx={{py:3}}>
               <Grid item xs={12} sm={12}>
+              <ThemeProvider theme={buttontheme}>
                 <TextField
                   required
                   id="eventName"
@@ -60,34 +80,39 @@ export default function DecideTime({
                   label="Event Name"
                   fullWidth
                   autoComplete="given-name"
-                  variant="standard"
+                  // variant="standard"
+                  color="pinktextfield"
                 />
+                </ThemeProvider>
               </Grid>
               <Grid item xs={12}>
-                {/* <FormControlLabel
-                  control={<Checkbox color="secondary" name="saveAddress" value="yes" />}
-                  label="Use this address for payment details"
-                /> */}
               </Grid>
             </Grid>
+            <div class="center optima_text date_padding" >
+              Select the dates you want:
+            </div>
             <Calendar
-              handleClickOnDay={handleClickOnDay}
-              ableDay={ableDay}
+                 handleClickOnDay={handleClickOnDay}
+                 ableDay={ableDay}
             />
+            <div class='center mt' >
+              <DeadlineDatePicker />
+            </div>
             <Container maxWidth="sm">
               <Stack
                 sx={{ pt: 4 }}
                 direction="row"
                 spacing={2}
-                justifyContent="center"
+                justifyContent="flex-end"
               >
-                <Button variant="contained" onClick={() => handleChangeState(4)}>Next</Button>
+                <ThemeProvider theme={buttontheme}>
+                 <Button variant="contained" color="pinkbutton" onClick={() => handleChangeState(4)}>Next</Button>
+                </ThemeProvider>
               </Stack>
             </Container>
           </Container>
         </Container>
       </main>
-      {/* <Footor/> */}
     </ThemeProvider>
     
   );

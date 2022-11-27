@@ -345,6 +345,7 @@ img:hover {
   font-family: Optima;
   font-weight: bold;
   list-style-type:none;
+  color:#ffffff;
   display:flex;
   align-items: center;
   justify-content: center;

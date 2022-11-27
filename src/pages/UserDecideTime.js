@@ -24,15 +24,15 @@ const buttontheme = createTheme({
   palette: {
     availableButton: {
       main: '#8AC926',
-      contrastText: "#fff"
+      contrastText: "#000",
     },
     uncertainButton: {
       main: '#FFCA3A',
-      contrastText: "#fff"
+      contrastText: "#000"
     },
     unavailableButton: {
       main: '#FF595E',
-      contrastText: "#fff"
+      contrastText: "#000"
     },
     pinkbutton: {
       main: '#C23152',
@@ -62,6 +62,7 @@ export default function UserDecideTime({
                 bgcolor: '#F4D0DB',
                 pt: 3,
                 pb: 2,
+                borderRadius: 3,
               }}
             >
               <Typography
@@ -71,11 +72,12 @@ export default function UserDecideTime({
                 color="text.primary"
                 gutterBottom
               >
-                Decide Event Time
+                 <div className="optima" align="center">2023 New Year CountDown</div>
               </Typography>
             </Box>
+            <div className="optima_deadline" align="center">Deadline: 2022/12/01 23:59</div>
             <Grid container spacing={3}>
-              <Grid item xs={12} sm={12}>
+              {/* <Grid item xs={12} sm={12}>
                 <TextField
                   required
                   id="eventName"
@@ -85,7 +87,7 @@ export default function UserDecideTime({
                   autoComplete="given-name"
                   variant="standard"
                 />
-              </Grid>
+              </Grid> */}
               <Grid item xs={12}>
                 {/* <FormControlLabel
                   control={<Checkbox color="secondary" name="saveAddress" value="yes" />}
