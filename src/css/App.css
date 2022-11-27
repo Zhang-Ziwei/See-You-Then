@@ -41,3 +41,50 @@
     transform: rotate(360deg);
   }
 }
+
+.optima_text {
+
+  font-family: Optima;
+  font-size: 20px;
+  font-weight: bold;
+  color: #000000;
+}
+
+.optima {
+
+  font-family: Optima;
+  font-size: 32;
+  font-weight: bold;
+  color: #000000;
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.mt{
+  margin-top:  20px;
+}
+
+.date_padding{
+  padding-left: 20px;
+}
+
+.option_padding{
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.optima_deadline{
+  font-family: Optima;
+  font-size: 20px;
+  font-weight: bold;
+  color: red;
+}
+
+.red_text{
+  color: red;
+  font-size: 30px;
+}

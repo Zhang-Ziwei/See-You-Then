@@ -8,6 +8,7 @@ export default function Title({titleName}) {
             bgcolor: '#F4D0DB',
             pt: 3,
             pb: 2,
+            borderRadius: 3,
             }}
         >
             <Typography
@@ -17,7 +18,7 @@ export default function Title({titleName}) {
             color="text.primary"
             gutterBottom
             >
-            {titleName}
+            <div className="optima" align="center">{titleName}</div>
             </Typography>
         </Box>
     )
