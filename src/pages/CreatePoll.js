@@ -41,7 +41,6 @@ const buttontheme = createTheme({
 });
 
 
-
 export default function CreatePoll() {
 
   const [numOption, setNumOption] = useState(1);
