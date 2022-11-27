@@ -28,14 +28,32 @@ function App() {
     // console.log(tmp)
   }
 
+  const [availableDay, setAvailableDay] = useState([]);
+  const [uncertainDay, setUncertainDay] = useState([]);
+  const [unavailableDay, setUnavailableDay] = useState([]);
   const [selectedState, setSelectedState] = useState(0)
+
   const handleUserClickOnDay = (e) => {
-    if(selectedState === 0)
-      e.currentTarget.className = "days available";
-    else if(selectedState === 1)
-      e.currentTarget.className = "days uncertain";
-    else
-      e.currentTarget.className = "days unavailable";
+    const id = e.currentTarget.id;
+    if(selectedState === 0) {
+      setAvailableDay([...availableDay, id]);
+      if(uncertainDay.includes(id))
+        setUncertainDay(uncertainDay.splice(uncertainDay.indexOf(id), 1));
+      else if(unavailableDay.includes(id))
+        setUnavailableDay(unavailableDay.splice(unavailableDay.indexOf(id), 1));
+    } else if(selectedState === 1) {
+      setUncertainDay([...uncertainDay, id]);
+      if(availableDay.includes(id))
+        setAvailableDay(availableDay.splice(availableDay.indexOf(id), 1));
+      else if(unavailableDay.includes(id))
+        setUnavailableDay(unavailableDay.splice(unavailableDay.indexOf(id), 1));
+    } else {
+      setUnavailableDay([...unavailableDay, id]);
+      if(uncertainDay.includes(id))
+        setUncertainDay(uncertainDay.splice(uncertainDay.indexOf(id), 1));
+      else if(availableDay.includes(id))
+        setAvailableDay(availableDay.splice(availableDay.indexOf(id), 1));
+    }
     // const today = new Date(`${new Date().getFullYear()} ${new Date().getMonth()+1} ${new Date().getDate()}`).getTime();
     // const current = new Date(e.currentTarget.id).getTime();
     // console.log(`day > today: ${current >= today}`);
@@ -66,6 +84,9 @@ function App() {
                         handleUserClickOnDay={handleUserClickOnDay}
                         ableDay={ableDay}
                         handleChangeSelectedState={handleChangeSelectedState}
+                        availableDay={availableDay}
+                        uncertainDay={uncertainDay}
+                        unavailableDay={unavailableDay}
                       />
       }
     </div>
