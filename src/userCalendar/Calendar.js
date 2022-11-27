@@ -12,7 +12,10 @@ const dayNum = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
 const Calendar = ({
     handleUserClickOnDay,
-    ableDay
+    ableDay,
+    availableDay,
+    uncertainDay,
+    unavailableDay
 }) => {
     // 今天的日期
     const [todayDate, setTodayDate] = useState(new Date())
@@ -71,6 +74,9 @@ const Calendar = ({
                 todayDate={todayDate} currentDate={currentDate}
                 handleUserClickOnDay={handleUserClickOnDay}
                 ableDay={ableDay}
+                availableDay={availableDay}
+                uncertainDay={uncertainDay}
+                unavailableDay={unavailableDay}
             />
         </div>
     )

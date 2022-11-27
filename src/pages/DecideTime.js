@@ -8,15 +8,18 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import * as React from 'react';
-import { Dayjs } from 'dayjs';
-import DeadlineDatePicker from '../component/DeadlineDatePicker'
-import 'react-day-picker/dist/style.css';
-import { DayPicker } from 'react-day-picker';
-import { format } from 'date-fns';
+import Calendar from '../orginizerCalendar/Calendar'
 import { useState } from 'react';
-import Calendar from '../orginizerCalendar/Calendar';
-import compo14 from '../images/Component_14.png'
-import Avatar from '@mui/material/Avatar';
+
+// import { Dayjs } from 'dayjs';
+// import DeadlineDatePicker from '../component/DeadlineDatePicker'
+// import 'react-day-picker/dist/style.css';
+// import { DayPicker } from 'react-day-picker';
+// import { format } from 'date-fns';
+// import { useState } from 'react';
+// import Calendar from '../orginizerCalendar/Calendar';
+// import compo14 from '../images/Component_14.png'
+// import Avatar from '@mui/material/Avatar';
 
 const themeLight = createTheme({
   palette: {
@@ -43,23 +46,6 @@ export default function DecideTime({
   handleClickOnDay,
   ableDay
 }) {
-  // const [selectedDay, setSelectedDay] = useState<Date>(null);
-  const [mode, setMode] = useState('loading')
-  // Login data
-  const [token, setToken] = useState("")
-  const [userName, setUserName] = useState("")
-  // All schedule
-  const [schedule, setSchedule] = useState([])
-  // View state of group or personal
-  const [state, setState] = useState("all")
-  // Group name
-  const [group, setGroup] = useState("")
-  // Record that if we have reequest data
-	const [requested, setRequested] = useState(false)
-
-  const sendData = (data) => {
-    
-  }
   return (
     <ThemeProvider theme={themeLight}>
       <CssBaseline />
@@ -128,5 +114,6 @@ export default function DecideTime({
         </Container>
       </main>
     </ThemeProvider>
+    
   );
 }

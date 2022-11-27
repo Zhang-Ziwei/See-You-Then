@@ -20,7 +20,6 @@ const themeLight = createTheme({
   }
 });
 
-
 const buttontheme = createTheme({
   palette: {
     availableButton: {
@@ -46,7 +45,10 @@ const buttontheme = createTheme({
 export default function UserDecideTime({
   handleUserClickOnDay,
   ableDay,
-  handleChangeSelectedState
+  handleChangeSelectedState,
+  availableDay,
+  uncertainDay,
+  unavailableDay
 }) {
 
   return (
@@ -96,6 +98,9 @@ export default function UserDecideTime({
             <Calendar
               handleUserClickOnDay={handleUserClickOnDay}
               ableDay={ableDay}
+              availableDay={availableDay}
+              uncertainDay={uncertainDay}
+              unavailableDay={unavailableDay}
             />
             <Container maxWidth="sm">
               <Stack
@@ -119,7 +124,7 @@ export default function UserDecideTime({
                 justifyContent="center"
               >
                 <ThemeProvider theme={buttontheme}>
-                  <Button variant="contained" color="pinkbutton" >Next</Button>
+                  <Button variant="contained" color="pinkbutton">Next</Button>
                 </ThemeProvider>
               </Stack>
             </Container>
