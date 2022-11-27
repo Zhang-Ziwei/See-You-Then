@@ -6,7 +6,10 @@ const dayNum = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 const Days = ({
     todayDate, currentDate,
     handleUserClickOnDay,
-    ableDay
+    ableDay,
+    availableDay,
+    uncertainDay,
+    unavailableDay
 }) => {
     const currentMonth = Month.indexOf(currentDate.month);
     const firstDay = new Date(`${currentDate.year}-${currentDate.month}-1`).getDay();
@@ -24,7 +27,12 @@ const Days = ({
         }
         const id = `${currentDate.year} ${Month.indexOf(currentDate.month)} ${date}`
         days.push((
-            <li key={day} className={(ableDay.includes(id))? "days"  : "disabled days"} id={id} onClick={(ableDay.includes(id))? handleUserClickOnDay : () => {}}>
+            <li key={day} className={
+                    (ableDay.includes(id))? 
+                    (availableDay.includes(id))? "available days" : 
+                    (uncertainDay.includes(id))? "uncertain days" : 
+                    (unavailableDay.includes(id))? "unavailable days" : "days" : "disabled days"
+                } id={id} onClick={(ableDay.includes(id))? handleUserClickOnDay : () => {}}>
                 <p className="day">{day}</p>
             </li>
         ))

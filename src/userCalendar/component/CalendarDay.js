@@ -12,7 +12,10 @@ const CalendarDay = ({
     handleLeft, handleRight,
     todayDate, currentDate,
     handleUserClickOnDay,
-    ableDay
+    ableDay,
+    availableDay,
+    uncertainDay,
+    unavailableDay
 }) => {
     
     return (
@@ -41,6 +44,9 @@ const CalendarDay = ({
                     todayDate={todayDate} currentDate={currentDate}
                     handleUserClickOnDay={handleUserClickOnDay}
                     ableDay={ableDay}
+                    availableDay={availableDay}
+                    uncertainDay={uncertainDay}
+                    unavailableDay={unavailableDay}
                 />
             </div>
         </div>
