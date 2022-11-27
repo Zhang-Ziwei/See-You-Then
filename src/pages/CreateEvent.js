@@ -55,11 +55,19 @@ const buttontheme = createTheme({
 
 
 
-export default function CreateEventPage() {
-  const [value, setValue] = React.useState('binary');
+export default function CreateEventPage({
+  eventName, setEventName,
+  decideEventMethod, setDecideEventMethod,
+  createEventDeadline, 
+  setCreateEventDeadline,
+  handleChangeState
+}) {
+  const handleChangeEventName = (event) => {
+    setEventName(event.target.value)
+  }
 
   const handleChange = (event) => {
-    setValue(event.target.value);
+    setDecideEventMethod(event.target.value);
   };
   return (
     <ThemeProvider theme={themeLight}>
@@ -93,17 +101,18 @@ export default function CreateEventPage() {
                   id="eventName"
                   name="eventName"
                   label="Event Name"
+                  value={eventName}
                   fullWidth
                   autoComplete="given-name"
-                  // variant="filled"
                   helperText="Please enter your event name"
                   color="pinktextfield"
+                  onChange={handleChangeEventName}
                 />
                 </ThemeProvider>
               </Grid>
               <Grid item xs={12}>
 
-                <div class='optima_text'>
+                <div className='optima_text'>
                   Option:
                 </div>
                     {/* <RadioGroup
@@ -175,7 +184,7 @@ export default function CreateEventPage() {
                     <RadioGroup
                       aria-labelledby="demo-controlled-radio-buttons-group"
                       name="controlled-radio-buttons-group"
-                      value={value}
+                      value={decideEventMethod}
                       onChange={handleChange}
                     >
                       <Grid container spacing={2} sx={{pt:5}}>
@@ -195,13 +204,16 @@ export default function CreateEventPage() {
                         </Grid>
                       </Grid>
                       {/* <FormControlLabel value="male" control={<Radio />}  />
-                      <img src={compo13} width="400" class='center'/> */}
+                      <img src={compo13} width="400" className='center'/> */}
                     </RadioGroup>
                   </FormControl>
               </Grid>
             </Grid>
-            <div class='center mt' >
-            <DeadlineDatePicker />
+            <div className='center mt' >
+            <DeadlineDatePicker 
+              value={createEventDeadline}
+              setValue={setCreateEventDeadline}
+            />
             </div>
             <Container maxWidth="sm">
               <Stack
@@ -211,7 +223,7 @@ export default function CreateEventPage() {
                 justifyContent="flex-end"
               >
                 <ThemeProvider theme={buttontheme}>
-                 <Button variant="contained" color="pinkbutton">Next</Button>
+                 <Button variant="contained" color="pinkbutton" onClick={() => handleChangeState(4)}>Next</Button>
                 </ThemeProvider>
               </Stack>
             </Container>

@@ -3,9 +3,14 @@ import HomePage from "./pages/HomePage";
 import CreateEvent from "./pages/CreateEvent";
 import CreatePoll from "./pages/CreatePoll";
 import DecideTime from "./pages/DecideTime";
+import EventFinishPage from './pages/EventFinishPage';
+import PollFinishPage from './pages/PollFinishPage';
+import TimeFinishPage from './pages/TimeFinishPage';
+
 import UserDecideTime from "./pages/UserDecideTime";
 import { useState } from 'react';
 import ResponsiveAppBar from "./component/ResponsiveAppBar";
+import dayjs from 'dayjs';
 
 function App() {
   const [state, setState] = useState(0);
@@ -68,17 +73,70 @@ function App() {
     setSelectedState(parseInt(e.currentTarget.id));
   }
 
+  // Deadline of each task
+  const [createEventDeadline, setCreateEventDeadline] = useState(dayjs(new Date()));
+  const [createPollDeadline, setCreatePollDeadline] = useState(dayjs(new Date()));
+  const [decideTimeDeadline, setDecideTimeDeadline] = useState(dayjs(new Date()));
+
+  // CreateEvent variable
+  const [eventName, setEventName] = useState('')
+  const [decideEventMethod, setDecideEventMethod] = useState('binary');
+
+  // CreatePoll variable
+  const [pollName, setPollName] = useState('');
+  const [numOption, setNumOption] = useState(1);
+  const [items, setItems] = useState(['']);
+  const [decideMethod, setDecideMethod] = useState('majority');
+
+  // DecideTime variable
+  const [decideTimeName, setDecideTimeName] = useState('');
+
   return (
     <div className="container">
       <ResponsiveAppBar />
       {(state === 0) ? <HomePage handleChangeState={handleChangeState}/> :
-       (state === 1) ? <CreateEvent handleChangeState={handleChangeState}/> :
-       (state === 2) ? <CreatePoll handleChangeState={handleChangeState}/> : 
-       (state === 3) ? <DecideTime 
+       (state === 1) ? <CreateEvent 
+                        handleChangeState={handleChangeState} 
+                        eventName={eventName}
+                        setEventName={setEventName}
+                        decideEventMethod={decideEventMethod}
+                        setDecideEventMethod={setDecideEventMethod}
+                        createEventDeadline={createEventDeadline} 
+                        setCreateEventDeadline={setCreateEventDeadline}/> :
+       (state === 2) ? <CreatePoll 
                         handleChangeState={handleChangeState}
+                        pollName={pollName}
+                        setPollName={setPollName}
+                        numOption={numOption}
+                        setNumOption={setNumOption}
+                        items={items}
+                        setItems={setItems}
+                        decideMethod={decideMethod}
+                        setDecideMethod={setDecideMethod}
+                        createPollDeadline={createPollDeadline} 
+                        setCreatePollDeadline={setCreatePollDeadline}
+                      /> : 
+       (state === 3) ? <DecideTime
+                        handleChangeState={handleChangeState}
+                        decideTimeName={decideTimeName}
+                        setDecideTimeName={setDecideTimeName}
                         handleClickOnDay={handleClickOnDay}
                         ableDay={ableDay}
+                        decideTimeDeadline={decideTimeDeadline}
+                        setDecideTimeDeadline={setDecideTimeDeadline}
                       /> : 
+       (state === 4) ? <EventFinishPage 
+                        handleChangeState={handleChangeState}
+                        eventName={eventName}
+                      /> :
+       (state === 5) ? <PollFinishPage 
+                        handleChangeState={handleChangeState}
+                        pollName={pollName}
+                      /> :
+       (state === 6) ? <TimeFinishPage 
+                        handleChangeState={handleChangeState}
+                        decideTimeName={decideTimeName}
+                      /> :
                       <UserDecideTime
                         handleChangeState={handleChangeState}
                         handleUserClickOnDay={handleUserClickOnDay}

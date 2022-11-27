@@ -1,22 +1,9 @@
 import * as React from 'react';
-import dayjs from 'dayjs';
 import TextField from '@mui/material/TextField';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-
-const buttontheme = createTheme({
-  palette: {
-    pinkbutton: {
-      main: '#C23152',
-      contrastText: "#fff"
-    },
-    pinktextfield:{
-      main: '#DA94A4'
-    }
-  },
-});
 
 const customTheme = createTheme({
 	palette: {
@@ -33,8 +20,7 @@ const customTheme = createTheme({
 	},
 })
 
-export default function DeadlineDatePicker() {
-  const [value, setValue] = React.useState(dayjs('2022-11-21'));
+export default function DeadlineDatePicker({value, setValue}) {
 
   return (
     <ThemeProvider theme={customTheme}>

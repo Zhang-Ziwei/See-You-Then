@@ -76,19 +76,6 @@ export default function HomePage({handleChangeState}) {
               </Card>
             </Grid>
           </Grid>
-          <br></br>
-          <Grid container spacing={12}>
-            <Grid item key={1} xs={12} onClick={() => handleChangeState(4)}>
-              <Card
-                sx={{ height: '100%', display: 'flex', flexDirection: 'column', 'align-items': 'center' }}
-              >
-                <Button fullWidth variant={'outline-light'} sx={{ width: '100%', height: '96px', display: 'flex', backgroundColor: '#ffffff', 'font-weight': 'bold' }}>
-                  <CalendarMonthIcon sx={{ height: '96px', display: 'flex', 'line-height': '96px', mr: '0.5rem'}} />
-                  user decide the time
-                </Button>
-              </Card>
-            </Grid>
-          </Grid>
         </Container>
       </main>
       {/* <Footor/> */}

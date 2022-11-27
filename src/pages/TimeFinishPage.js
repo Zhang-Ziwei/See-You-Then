@@ -38,14 +38,17 @@ const buttontheme = createTheme({
   },
 });
 
-export default function EventFinishPage(){
+export default function TimeFinishPage({
+  handleChangeState,
+  decideTimeName
+}){
     return (
         <ThemeProvider theme={themeLight}>
           <CssBaseline />
             <main>
             <Container sx={{ py: 8, }} maxWidth="md">
                 <div className='optima_text' align='center'>A time decision named</div>
-                <div className='optima_text red_text' align='center'>2023 New Year Countdown</div>
+                <div className='optima_text red_text' align='center'>{decideTimeName}</div>
                 <div className='optima_text' align='center'>has been successfully created.</div>
             </Container>
             <Box
@@ -70,7 +73,7 @@ export default function EventFinishPage(){
             >
         
                 <ThemeProvider theme={buttontheme}>
-                <Button variant="contained" color="pinkbutton" style={{maxWidth: '200px', maxHeight: '50px', minWidth: '200px', minHeight: '50px'}}>Back to Home</Button>
+                <Button variant="contained" color="pinkbutton" style={{maxWidth: '200px', maxHeight: '50px', minWidth: '200px', minHeight: '50px'}} onClick={() => handleChangeState(0)}>Back to Home</Button>
                 </ThemeProvider>
             </Box>
             </main>

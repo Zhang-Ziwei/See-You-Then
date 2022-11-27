@@ -10,16 +10,8 @@ import Typography from '@mui/material/Typography';
 import * as React from 'react';
 import Calendar from '../orginizerCalendar/Calendar'
 import { useState } from 'react';
-
-// import { Dayjs } from 'dayjs';
-// import DeadlineDatePicker from '../component/DeadlineDatePicker'
-// import 'react-day-picker/dist/style.css';
-// import { DayPicker } from 'react-day-picker';
-// import { format } from 'date-fns';
-// import { useState } from 'react';
-// import Calendar from '../orginizerCalendar/Calendar';
-// import compo14 from '../images/Component_14.png'
-// import Avatar from '@mui/material/Avatar';
+import DeadlineDatePicker from '../component/DeadlineDatePicker'
+import 'react-day-picker/dist/style.css';
 
 const themeLight = createTheme({
   palette: {
@@ -42,10 +34,18 @@ const buttontheme = createTheme({
 });
 
 export default function DecideTime({
-  handleChangeState,
+  decideTimeName, setDecideTimeName,
   handleClickOnDay,
-  ableDay
+  ableDay,
+  decideTimeDeadline,
+  setDecideTimeDeadline,
+  handleChangeState
 }) {
+
+  const handleChangeEventName = (event) => {
+    setDecideTimeName(event.target.value);
+  }
+
   return (
     <ThemeProvider theme={themeLight}>
       <CssBaseline />
@@ -78,25 +78,30 @@ export default function DecideTime({
                   id="eventName"
                   name="eventName"
                   label="Event Name"
+                  value={decideTimeName}
                   fullWidth
                   autoComplete="given-name"
                   // variant="standard"
                   color="pinktextfield"
+                  onChange={handleChangeEventName}
                 />
                 </ThemeProvider>
               </Grid>
               <Grid item xs={12}>
               </Grid>
             </Grid>
-            <div class="center optima_text date_padding" >
+            <div className="center optima_text date_padding" >
               Select the dates you want:
             </div>
             <Calendar
                  handleClickOnDay={handleClickOnDay}
                  ableDay={ableDay}
             />
-            <div class='center mt' >
-              <DeadlineDatePicker />
+            <div className='center mt' >
+              <DeadlineDatePicker 
+                value={decideTimeDeadline}
+                setValue={setDecideTimeDeadline}
+              />
             </div>
             <Container maxWidth="sm">
               <Stack
@@ -106,7 +111,7 @@ export default function DecideTime({
                 justifyContent="flex-end"
               >
                 <ThemeProvider theme={buttontheme}>
-                 <Button variant="contained" color="pinkbutton" onClick={() => handleChangeState(4)}>Next</Button>
+                 <Button variant="contained" color="pinkbutton" onClick={() => handleChangeState(6)}>Next</Button>
                 </ThemeProvider>
               </Stack>
             </Container>
