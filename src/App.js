@@ -6,8 +6,12 @@ import DecideTime from "./pages/DecideTime";
 import EventFinishPage from './pages/EventFinishPage';
 import PollFinishPage from './pages/PollFinishPage';
 import TimeFinishPage from './pages/TimeFinishPage';
-
+import UserPoll from './pages/UserPoll';
+import WannaGo from './pages/WannaGo';
 import UserDecideTime from "./pages/UserDecideTime";
+import DecideTimeResult from './pages/DecideTimeResult';
+
+
 import { useState } from 'react';
 import ResponsiveAppBar from "./component/ResponsiveAppBar";
 import dayjs from 'dayjs';
@@ -85,7 +89,7 @@ function App() {
   // CreatePoll variable
   const [pollName, setPollName] = useState('');
   const [numOption, setNumOption] = useState(1);
-  const [items, setItems] = useState(['']);
+  const [items, setItems] = useState([{title: ''}]);
   const [decideMethod, setDecideMethod] = useState('majority');
 
   // DecideTime variable
@@ -137,7 +141,31 @@ function App() {
                         handleChangeState={handleChangeState}
                         decideTimeName={decideTimeName}
                       /> :
-                      <UserDecideTime
+       (state === 7) ? <WannaGo 
+                        goProps={{
+                          title: eventName,
+                          deadLine: createEventDeadline.$d.toString(),
+                      }}/> :
+       (state === 8)? <UserPoll 
+                        pollProps={{
+                          title: pollName,
+                          deadLine: createPollDeadline.$d.toString(),
+                          method: decideMethod,
+                          choices: items
+                      }}/> :
+       (state === 9)? <UserDecideTime
+                        decideTimeName={decideTimeName}
+                        decideTimeDeadline={decideTimeDeadline}
+                        handleChangeState={handleChangeState}
+                        handleUserClickOnDay={handleUserClickOnDay}
+                        ableDay={ableDay}
+                        handleChangeSelectedState={handleChangeSelectedState}
+                        availableDay={availableDay}
+                        uncertainDay={uncertainDay}
+                        unavailableDay={unavailableDay}
+                      /> :
+                      <DecideTimeResult
+                        decideTimeName={decideTimeName}
                         handleChangeState={handleChangeState}
                         handleUserClickOnDay={handleUserClickOnDay}
                         ableDay={ableDay}

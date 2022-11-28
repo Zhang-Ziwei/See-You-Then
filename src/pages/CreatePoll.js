@@ -60,7 +60,7 @@ export default function CreatePoll({
 
   const handleAdd = () => {
     setNumOption(numOption+1);
-    setItems([...items, '']);
+    setItems([...items, {title: ''}]);
   }
 
   const handleDelete = (index) => {
@@ -72,9 +72,8 @@ export default function CreatePoll({
 
   const handleChange = (e, index) => {
     let tmp = items;
-    tmp[index] = e.target.value;
+    tmp[index] = {title: e.target.value};
     setItems([...tmp]);
-    console.log(tmp)
   }
 
   return (
@@ -110,7 +109,7 @@ export default function CreatePoll({
                       key={index} 
                       name={`Option ${index+1}`} 
                       index={index}
-                      value={item}
+                      value={item.title}
                       handleDelete={handleDelete}
                       handleChange={handleChange}
                     />
