@@ -1,5 +1,6 @@
 import './css/App.css';
 import HomePage from "./pages/HomePage";
+import UserHomePage from "./pages/UserHomePage";
 import CreateEvent from "./pages/CreateEvent";
 import CreatePoll from "./pages/CreatePoll";
 import DecideTime from "./pages/DecideTime";
@@ -9,15 +10,17 @@ import TimeFinishPage from './pages/TimeFinishPage';
 import UserPoll from './pages/UserPoll';
 import WannaGo from './pages/WannaGo';
 import UserDecideTime from "./pages/UserDecideTime";
+import UserPollResult from './pages/UserPollResult';
+import WannaGoResult from './pages/WannaGoResult';
 import DecideTimeResult from './pages/DecideTimeResult';
-
+import queryString from "query-string";
 
 import { useState } from 'react';
 import ResponsiveAppBar from "./component/ResponsiveAppBar";
 import dayjs from 'dayjs';
 
 function App() {
-  const [state, setState] = useState(0);
+  const [state, setState] = useState(999);
   const handleChangeState = (s) => {
     setState(s);
   };
@@ -36,6 +39,9 @@ function App() {
     setAbleDay([...tmp])
     // console.log(tmp)
   }
+
+  const parsed = queryString.parse(window.location.search);
+  console.log(parsed.page);
 
   const [availableDay, setAvailableDay] = useState([]);
   const [uncertainDay, setUncertainDay] = useState([]);
@@ -81,24 +87,72 @@ function App() {
   const [createEventDeadline, setCreateEventDeadline] = useState(dayjs(new Date()));
   const [createPollDeadline, setCreatePollDeadline] = useState(dayjs(new Date()));
   const [decideTimeDeadline, setDecideTimeDeadline] = useState(dayjs(new Date()));
-
   // CreateEvent variable
-  const [eventName, setEventName] = useState('')
+  const [eventName, setEventName] = useState('2022跨年嗎?')
   const [decideEventMethod, setDecideEventMethod] = useState('binary');
 
   // CreatePoll variable
-  const [pollName, setPollName] = useState('');
+  const [pollName, setPollName] = useState('2022跨年要去哪?');
   const [numOption, setNumOption] = useState(1);
-  const [items, setItems] = useState([{title: ''}]);
+  const [items, setItems] = useState([{title: 'Tokyo'},{title: 'City Hall'},{title: 'CS Building'}]);
   const [decideMethod, setDecideMethod] = useState('majority');
 
   // DecideTime variable
-  const [decideTimeName, setDecideTimeName] = useState('');
+  const [decideTimeName, setDecideTimeName] = useState('啥時揪!');
 
   return (
     <div className="container">
-      <ResponsiveAppBar />
-      {(state === 0) ? <HomePage handleChangeState={handleChangeState}/> :
+      <ResponsiveAppBar handleChangeState={handleChangeState}/>
+      {(state === 999)?
+        (queryString.parse(window.location.search).page == 7)? <WannaGo 
+                        goProps={{
+                          title: eventName,
+                          deadLine: createEventDeadline.$d.toString().substring(0,createEventDeadline.$d.toString().indexOf('GMT')),
+                      }}/> :
+       (queryString.parse(window.location.search).page == 8)? <UserPoll 
+                        pollProps={{
+                          title: pollName,
+                          deadLine: createPollDeadline.$d.toString().substring(0,createPollDeadline.$d.toString().indexOf('GMT')),
+                          method: decideMethod,
+                          choices: items
+                      }}/> :
+       (queryString.parse(window.location.search).page == 9)? <UserDecideTime
+                        decideTimeName={decideTimeName}
+                        decideTimeDeadline={decideTimeDeadline}
+                        handleChangeState={handleChangeState}
+                        handleUserClickOnDay={handleUserClickOnDay}
+                        ableDay={ableDay}
+                        handleChangeSelectedState={handleChangeSelectedState}
+                        availableDay={availableDay}
+                        uncertainDay={uncertainDay}
+                        unavailableDay={unavailableDay}
+                      /> :
+       (queryString.parse(window.location.search).page == 10)? <WannaGoResult
+                        goProps={{
+                          title: eventName,
+                          deadLine: createEventDeadline.$d.toString().substring(0,createEventDeadline.$d.toString().indexOf('GMT')),
+                      }}/> :
+       (queryString.parse(window.location.search).page == 11)? <UserPollResult
+                        pollProps={{
+                          title: pollName,
+                          deadLine: createPollDeadline.$d.toString().substring(0,createPollDeadline.$d.toString().indexOf('GMT')),
+                          method: decideMethod,
+                          choices: items
+                      }}/> :
+       (queryString.parse(window.location.search).page ==12)? <DecideTimeResult
+                        decideTimeName={decideTimeName}
+                        decideTimeDeadline={decideTimeDeadline}
+                        handleChangeState={handleChangeState}
+                        handleUserClickOnDay={handleUserClickOnDay}
+                        ableDay={ableDay}
+                        handleChangeSelectedState={handleChangeSelectedState}
+                        availableDay={availableDay}
+                        uncertainDay={uncertainDay}
+                        unavailableDay={unavailableDay}
+                      />
+        :<HomePage handleChangeState={handleChangeState}/>:
+       (state === 0) ? <HomePage handleChangeState={handleChangeState}/> :
+       (state === 99) ? <UserHomePage handleChangeState={handleChangeState}/> :
        (state === 1) ? <CreateEvent 
                         handleChangeState={handleChangeState} 
                         eventName={eventName}
@@ -144,12 +198,12 @@ function App() {
        (state === 7) ? <WannaGo 
                         goProps={{
                           title: eventName,
-                          deadLine: createEventDeadline.$d.toString(),
+                          deadLine: createEventDeadline.$d.toString().substring(0,createEventDeadline.$d.toString().indexOf('GMT')),
                       }}/> :
        (state === 8)? <UserPoll 
                         pollProps={{
                           title: pollName,
-                          deadLine: createPollDeadline.$d.toString(),
+                          deadLine: createPollDeadline.$d.toString().substring(0,createPollDeadline.$d.toString().indexOf('GMT')),
                           method: decideMethod,
                           choices: items
                       }}/> :
@@ -164,8 +218,21 @@ function App() {
                         uncertainDay={uncertainDay}
                         unavailableDay={unavailableDay}
                       /> :
-                      <DecideTimeResult
+       (state === 10)? <WannaGoResult
+                        goProps={{
+                          title: eventName,
+                          deadLine: createEventDeadline.$d.toString().substring(0,createEventDeadline.$d.toString().indexOf('GMT')),
+                      }}/> :
+       (state === 11)? <UserPollResult
+                        pollProps={{
+                          title: pollName,
+                          deadLine: createPollDeadline.$d.toString().substring(0,createPollDeadline.$d.toString().indexOf('GMT')),
+                          method: decideMethod,
+                          choices: items
+                      }}/> :
+       (state === 12)? <DecideTimeResult
                         decideTimeName={decideTimeName}
+                        decideTimeDeadline={decideTimeDeadline}
                         handleChangeState={handleChangeState}
                         handleUserClickOnDay={handleUserClickOnDay}
                         ableDay={ableDay}
@@ -173,7 +240,8 @@ function App() {
                         availableDay={availableDay}
                         uncertainDay={uncertainDay}
                         unavailableDay={unavailableDay}
-                      />
+                      /> :
+                      <HomePage handleChangeState={handleChangeState}/> 
       }
     </div>
   );

@@ -321,12 +321,12 @@ img:hover {
   display:flex;
   align-items: center;
   justify-content: center;
-  /* width:14.28%; */
-  margin-left: 10px;
+  width:14.28%;
+  /* margin-left: 10px;
   margin-right: 10px;
-  width: 51.5px;
-	/* height:16.66%; */
-  height: 51.5px;
+  width: 51.5px; */
+	height:16.66%;
+  /* height: 51.5px; */
   float:left;
   padding: 1px;
   /* border-right: 1px solid rgba(0, 0, 0, 0.3);
@@ -372,12 +372,12 @@ img:hover {
   display:flex;
   align-items: center;
   justify-content: center;
-  /* width:14.28%; */
-  margin-left: 10px;
-  margin-right: 10px;
-  width: 51.5px;
-	/* height:16.66%; */
-  height: 51.5px;
+  width:14.28%;
+  /* margin-left: 10px; */
+  /* margin-right: 10px; */
+  /* width: 51.5px; */
+	height:16.66%;
+  /* height: 51.5px; */
   float:left;
   padding: 1px;
   /* border-right: 1px solid rgba(0, 0, 0, 0.3);
