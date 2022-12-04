@@ -41,7 +41,6 @@ function App() {
   }
 
   const parsed = queryString.parse(window.location.search);
-  console.log(parsed.page);
 
   const [availableDay, setAvailableDay] = useState([]);
   const [uncertainDay, setUncertainDay] = useState([]);
@@ -50,24 +49,46 @@ function App() {
 
   const handleUserClickOnDay = (e) => {
     const id = e.currentTarget.id;
+    console.log(id, selectedState)
+    let tmp1 = availableDay;
+    let tmp2 = uncertainDay;
+    let tmp3 = unavailableDay;
     if(selectedState === 0) {
-      setAvailableDay([...availableDay, id]);
-      if(uncertainDay.includes(id))
-        setUncertainDay(uncertainDay.splice(uncertainDay.indexOf(id), 1));
-      else if(unavailableDay.includes(id))
-        setUnavailableDay(unavailableDay.splice(unavailableDay.indexOf(id), 1));
+      if(!availableDay.includes(id)){
+        setAvailableDay([...availableDay, id]);
+        tmp1.push(id)
+      }
+      if(uncertainDay.includes(id)){
+        tmp2.splice(uncertainDay.indexOf(id), 1);
+        setUncertainDay([...tmp2]);
+      } else if(unavailableDay.includes(id)){
+        tmp3.splice(unavailableDay.indexOf(id), 1)
+        setUnavailableDay([...tmp3]);
+      }
     } else if(selectedState === 1) {
-      setUncertainDay([...uncertainDay, id]);
-      if(availableDay.includes(id))
-        setAvailableDay(availableDay.splice(availableDay.indexOf(id), 1));
-      else if(unavailableDay.includes(id))
-        setUnavailableDay(unavailableDay.splice(unavailableDay.indexOf(id), 1));
-    } else {
-      setUnavailableDay([...unavailableDay, id]);
-      if(uncertainDay.includes(id))
-        setUncertainDay(uncertainDay.splice(uncertainDay.indexOf(id), 1));
-      else if(availableDay.includes(id))
-        setAvailableDay(availableDay.splice(availableDay.indexOf(id), 1));
+      if(!uncertainDay.includes(id)){
+        setUncertainDay([...uncertainDay, id]);
+        tmp2.push(id);
+      }
+      if(availableDay.includes(id)){
+        tmp1.splice(availableDay.indexOf(id), 1);
+        setAvailableDay([...tmp1])
+      } else if(unavailableDay.includes(id)){
+        tmp3.splice(unavailableDay.indexOf(id), 1)
+        setUnavailableDay([...tmp3]);
+      }
+    } else if(selectedState === 2) {
+      if(!unavailableDay.includes(id)){
+        setUnavailableDay([...unavailableDay, id]);
+        tmp3.push(id)
+      }
+      if(uncertainDay.includes(id)){
+        tmp2.splice(uncertainDay.indexOf(id), 1);
+        setUncertainDay([...tmp2]);
+      } else if(availableDay.includes(id)){
+        tmp1.splice(availableDay.indexOf(id), 1);
+        setAvailableDay([...tmp1]);
+      }
     }
     // const today = new Date(`${new Date().getFullYear()} ${new Date().getMonth()+1} ${new Date().getDate()}`).getTime();
     // const current = new Date(e.currentTarget.id).getTime();
@@ -84,9 +105,12 @@ function App() {
   }
 
   // Deadline of each task
-  const [createEventDeadline, setCreateEventDeadline] = useState(dayjs(new Date()));
-  const [createPollDeadline, setCreatePollDeadline] = useState(dayjs(new Date()));
-  const [decideTimeDeadline, setDecideTimeDeadline] = useState(dayjs(new Date()));
+  let now = new Date();
+  now = new Date(`${now.getFullYear()} ${now.getMonth()+1} ${now.getDate()} 23:59:59`)
+
+  const [createEventDeadline, setCreateEventDeadline] = useState(dayjs(now));
+  const [createPollDeadline, setCreatePollDeadline] = useState(dayjs(now));
+  const [decideTimeDeadline, setDecideTimeDeadline] = useState(dayjs(now));
   // CreateEvent variable
   const [eventName, setEventName] = useState('2022跨年嗎?')
   const [decideEventMethod, setDecideEventMethod] = useState('binary');
