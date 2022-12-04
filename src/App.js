@@ -49,7 +49,6 @@ function App() {
 
   const handleUserClickOnDay = (e) => {
     const id = e.currentTarget.id;
-    console.log(id, selectedState)
     let tmp1 = availableDay;
     let tmp2 = uncertainDay;
     let tmp3 = unavailableDay;

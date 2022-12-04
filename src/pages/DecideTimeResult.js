@@ -10,7 +10,7 @@ import Typography from '@mui/material/Typography';
 import * as React from 'react';
 import Calendar from '../resultCalendar/Calendar'
 import { useState } from 'react';
-
+import Brightness1Icon from '@mui/icons-material/Brightness1';
 
 const themeLight = createTheme({
   palette: {
@@ -96,20 +96,187 @@ export default function DecideTimeResult({
                 /> */}
               </Grid>
             </Grid>
-            <Calendar
+            {/* <Calendar
               handleUserClickOnDay={handleUserClickOnDay}
               ableDay={ableDay}
               availableDay={availableDay}
               uncertainDay={uncertainDay}
               unavailableDay={unavailableDay}
-            />
+            /> */}
             <Container maxWidth="sm">
               <Stack
                 sx={{ pt: 4 }}
-                direction="row"
+                direction="column"
                 spacing={2}
                 justifyContent="center"
               >
+                <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
+                  <Typography
+                    component="h1"
+                    variant="h5"
+                    align="center"
+                    color="white"
+                    gutterBottom
+                    sx={{backgroundColor: '#B26A7D', height: '3rem', width: '3rem', borderRadius: '3rem', pt: 1}}
+                  >
+                    1
+                  </Typography>
+                  <Typography
+                    component="h1"
+                    variant="h5"
+                    align="center"
+                    color="text.primary"
+                    gutterBottom
+                    sx={{height: '3rem', fontWeight: 'bold', pt: 1, ml: 2}}
+                  >
+                    <div>{`${availableDay.sort()[0].split(' ')[0]}/${availableDay.sort()[0].split(' ')[1]}/${availableDay.sort()[0].split(' ')[2]}`}</div>
+                  </Typography>
+                  <Brightness1Icon sx={{fontSize: '12.8px', height: '3rem', ml: 2, color: '#8AC926'}}/>
+                  <Typography
+                    component="h1"
+                    variant="h6"
+                    align="center"
+                    color="text.primary"
+                    gutterBottom
+                    sx={{height: '3rem', fontWeight: 'bold', pt: 1, ml: 0.1}}
+                  >
+                    1
+                  </Typography>
+                  <Brightness1Icon sx={{fontSize: '12.8px', height: '3rem', ml: 1, color: '#FFCA3A'}}/>
+                  <Typography
+                    component="h1"
+                    variant="h6"
+                    align="center"
+                    color="text.primary"
+                    gutterBottom
+                    sx={{height: '3rem', fontWeight: 'bold', pt: 1, ml: 0.1}}
+                  >
+                    0
+                  </Typography>
+                  <Brightness1Icon sx={{fontSize: '12.8px', height: '3rem', ml: 1, color: '#FF595E'}}/>
+                  <Typography
+                    component="h1"
+                    variant="h6"
+                    align="center"
+                    color="text.primary"
+                    gutterBottom
+                    sx={{height: '3rem', fontWeight: 'bold', pt: 1, ml: 0.1}}
+                  >
+                    0
+                  </Typography>
+                </Box>
+
+                <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
+                  <Typography
+                    component="h1"
+                    variant="h5"
+                    align="center"
+                    color="white"
+                    gutterBottom
+                    sx={{backgroundColor: '#B26A7D', height: '3rem', width: '3rem', borderRadius: '3rem', pt: 1}}
+                  >
+                    2
+                  </Typography>
+                  <Typography
+                    component="h1"
+                    variant="h5"
+                    align="center"
+                    color="text.primary"
+                    gutterBottom
+                    sx={{height: '3rem', fontWeight: 'bold', pt: 1, ml: 2}}
+                  >
+                    <div>{`${availableDay.sort()[1].split(' ')[0]}/${availableDay.sort()[1].split(' ')[1]}/${availableDay.sort()[1].split(' ')[2]}`}</div>
+                  </Typography>
+                  <Brightness1Icon sx={{fontSize: '12.8px', height: '3rem', ml: 2, color: '#8AC926'}}/>
+                  <Typography
+                    component="h1"
+                    variant="h6"
+                    align="center"
+                    color="text.primary"
+                    gutterBottom
+                    sx={{height: '3rem', fontWeight: 'bold', pt: 1, ml: 0.1}}
+                  >
+                    1
+                  </Typography>
+                  <Brightness1Icon sx={{fontSize: '12.8px', height: '3rem', ml: 1, color: '#FFCA3A'}}/>
+                  <Typography
+                    component="h1"
+                    variant="h6"
+                    align="center"
+                    color="text.primary"
+                    gutterBottom
+                    sx={{height: '3rem', fontWeight: 'bold', pt: 1, ml: 0.1}}
+                  >
+                    0
+                  </Typography>
+                  <Brightness1Icon sx={{fontSize: '12.8px', height: '3rem', ml: 1, color: '#FF595E'}}/>
+                  <Typography
+                    component="h1"
+                    variant="h6"
+                    align="center"
+                    color="text.primary"
+                    gutterBottom
+                    sx={{height: '3rem', fontWeight: 'bold', pt: 1, ml: 0.1}}
+                  >
+                    0
+                  </Typography>
+                </Box>
+
+                <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
+                  <Typography
+                    component="h1"
+                    variant="h5"
+                    align="center"
+                    color="white"
+                    gutterBottom
+                    sx={{backgroundColor: '#B26A7D', height: '3rem', width: '3rem', borderRadius: '3rem', pt: 1}}
+                  >
+                    3
+                  </Typography>
+                  <Typography
+                    component="h1"
+                    variant="h5"
+                    align="center"
+                    color="text.primary"
+                    gutterBottom
+                    sx={{height: '3rem', fontWeight: 'bold', pt: 1, ml: 2}}
+                  >
+                    <div>{`${availableDay.sort()[2].split(' ')[0]}/${availableDay.sort()[2].split(' ')[1]}/${availableDay.sort()[2].split(' ')[2]}`}</div>
+                  </Typography>
+                  <Brightness1Icon sx={{fontSize: '12.8px', height: '3rem', ml: 2, color: '#8AC926'}}/>
+                  <Typography
+                    component="h1"
+                    variant="h6"
+                    align="center"
+                    color="text.primary"
+                    gutterBottom
+                    sx={{height: '3rem', fontWeight: 'bold', pt: 1, ml: 0.1}}
+                  >
+                    1
+                  </Typography>
+                  <Brightness1Icon sx={{fontSize: '12.8px', height: '3rem', ml: 1, color: '#FFCA3A'}}/>
+                  <Typography
+                    component="h1"
+                    variant="h6"
+                    align="center"
+                    color="text.primary"
+                    gutterBottom
+                    sx={{height: '3rem', fontWeight: 'bold', pt: 1, ml: 0.1}}
+                  >
+                    0
+                  </Typography>
+                  <Brightness1Icon sx={{fontSize: '12.8px', height: '3rem', ml: 1, color: '#FF595E'}}/>
+                  <Typography
+                    component="h1"
+                    variant="h6"
+                    align="center"
+                    color="text.primary"
+                    gutterBottom
+                    sx={{height: '3rem', fontWeight: 'bold', pt: 1, ml: 0.1}}
+                  >
+                    0
+                  </Typography>
+                </Box>
                 {/* <ThemeProvider theme={buttontheme}>
                   <Button id={0} variant="contained" color="availableButton" className="SelectState" onClick={handleChangeSelectedState}>Available</Button>
                   <Button id={1} variant="contained" color="uncertainButton" className="disabledSelectState SelectState" onClick={handleChangeSelectedState}>Uncertain</Button>
