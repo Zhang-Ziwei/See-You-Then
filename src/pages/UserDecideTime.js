@@ -114,8 +114,8 @@ export default function UserDecideTime({
               >
                 <ThemeProvider theme={buttontheme}>
                   <Button id={0} variant="contained" color="availableButton" className="SelectState" onClick={handleChangeSelectedState}>Available</Button>
-                  <Button id={1} variant="outlined" color="uncertainButton" className="disabledSelectState SelectState" onClick={handleChangeSelectedState}>Uncertain</Button>
-                  <Button id={2} variant="outlined" color="unavailableButton" className="disabledSelectState SelectState" onClick={handleChangeSelectedState}>Unavailable</Button>
+                  <Button id={1} variant="contained" color="uncertainButton" className="disabledSelectState SelectState" onClick={handleChangeSelectedState}>Uncertain</Button>
+                  <Button id={2} variant="contained" color="unavailableButton" className="disabledSelectState SelectState" onClick={handleChangeSelectedState}>Unavailable</Button>
                 </ThemeProvider>
               </Stack>
             </Container>
