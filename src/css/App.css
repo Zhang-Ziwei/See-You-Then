@@ -88,3 +88,15 @@
   color: red;
   font-size: 30px;
 }
+
+.poll_option_padding{
+  padding-top: 40px;
+}
+
+.padding_beneath{
+  padding-bottom: 15px;
+}
+
+.white_text{
+  color:white;
+}

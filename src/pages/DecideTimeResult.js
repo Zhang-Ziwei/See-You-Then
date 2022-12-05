@@ -8,7 +8,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import * as React from 'react';
-import Calendar from '../userCalendar/Calendar'
+import Calendar from '../resultCalendar/Calendar'
 import { useState } from 'react';
 
 
@@ -42,10 +42,9 @@ const buttontheme = createTheme({
 });
 
 
-export default function UserDecideTime({
-  decideTimeName,
-  decideTimeDeadline,
+export default function DecideTimeResult({
   handleChangeState,
+  decideTimeName,
   handleUserClickOnDay,
   ableDay,
   handleChangeSelectedState,
@@ -78,7 +77,6 @@ export default function UserDecideTime({
                  <div className="optima" align="center">{decideTimeName}</div>
               </Typography>
             </Box>
-            <div className="optima_deadline" align="center">{decideTimeDeadline.$d.toString()}</div>
             <Grid container spacing={3}>
               {/* <Grid item xs={12} sm={12}>
                 <TextField
@@ -112,11 +110,11 @@ export default function UserDecideTime({
                 spacing={2}
                 justifyContent="center"
               >
-                <ThemeProvider theme={buttontheme}>
+                {/* <ThemeProvider theme={buttontheme}>
                   <Button id={0} variant="contained" color="availableButton" className="SelectState" onClick={handleChangeSelectedState}>Available</Button>
                   <Button id={1} variant="contained" color="uncertainButton" className="disabledSelectState SelectState" onClick={handleChangeSelectedState}>Uncertain</Button>
                   <Button id={2} variant="contained" color="unavailableButton" className="disabledSelectState SelectState" onClick={handleChangeSelectedState}>Unavailable</Button>
-                </ThemeProvider>
+                </ThemeProvider> */}
               </Stack>
             </Container>
             <Container maxWidth="sm">
@@ -127,7 +125,7 @@ export default function UserDecideTime({
                 justifyContent="center"
               >
                 <ThemeProvider theme={buttontheme}>
-                  <Button variant="contained" color="pinkbutton" onClick={() => handleChangeState(12)}>Next</Button>
+                  <Button variant="contained" color="pinkbutton" onClick={() => handleChangeState(0)}>Done</Button>
                 </ThemeProvider>
               </Stack>
             </Container>

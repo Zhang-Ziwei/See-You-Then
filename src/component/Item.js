@@ -19,8 +19,7 @@ const buttontheme = createTheme({
     }
   });
 
-
-export default function Item({name, index, handleDelete, handleChange}) {
+export default function Item({name, index, value, handleDelete, handleChange}) {
     return (
         <Grid item xs={12} sm={12} sx={{display: 'flex', justifyContent: 'start', mx: 3}}>
             <ThemeProvider theme={buttontheme}>
@@ -30,6 +29,7 @@ export default function Item({name, index, handleDelete, handleChange}) {
                     name={name}
                     label={name}
                     key={index}
+                    value={value}
                     fullWidth
                     autoComplete="given-name"
                     color="pinktextfield"

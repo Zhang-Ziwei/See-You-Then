@@ -24,15 +24,14 @@ function ResponsiveAppBar({handleChangeState}) {
         <Toolbar disableGutters>
           {/* Big screen */}
           <Diversity3Icon sx={{ display: { xs: 'none', md: 'flex' ,'font-style': 'italic'}, mr: 3, color: color["font"]}}/>
-          <Typography
+          <Typography  onClick={() => handleChangeState(0)}
             variant="h6"
             noWrap
             component="a"
-            href='/'
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' ,'font-style': 'cursive'},
-              fontFamily: 'Pacifico',
+              fontFamily: 'Cookie',
               fontWeight: 700,
               letterSpacing: '.1rem',
               color: color["font"],
@@ -42,18 +41,17 @@ function ResponsiveAppBar({handleChangeState}) {
             See You Then
           </Typography>
           <Diversity3Icon sx={{ display: { xs: 'flex', md: 'none' ,'font-style': 'italic'}, mr: 1, color: color["font"]}} />
-          <Typography
+          <Typography onClick={() => handleChangeState(0)}
             variant="h5"
             noWrap
             component="a"
-            href='/'
             sx={{
               mr: 2,
-              display: { xs: 'flex', md: 'none' ,'font-style': 'italic'},
+              display: { xs: 'flex', md: 'none' ,'font-style': 'cursive'},
               flexGrow: 1,
-              fontFamily: 'Pacifico',
+              fontFamily: 'Cookie',
               fontWeight: 700,
-              letterSpacing: '.3rem',
+              letterSpacing: '.1rem',
               color: color["font"],
               textDecoration: 'none',
             }}
@@ -61,7 +59,7 @@ function ResponsiveAppBar({handleChangeState}) {
             See You Then
           </Typography>
 
-          <Box sx={{ flexGrow: 0, position: "fixed", right: 10}}>
+          <Box sx={{ flexGrow: 0, position: "fixed", right: 10}} onClick={() => handleChangeState(99)}>
             {/* The description of the user button */}
             <Tooltip title="Open settings">
               <IconButton sx={{ p: 0 }}>

@@ -1,5 +1,3 @@
-
-
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import EventNoteIcon from '@mui/icons-material/EventNote';
 import HowToVoteIcon from '@mui/icons-material/HowToVote';
@@ -18,64 +16,52 @@ const themeLight = createTheme({
     }
   }
 });
-export default function HomePage({handleChangeState}) {
+export default function HomePage({ handleChangeState }) {
   return (
     <ThemeProvider theme={themeLight}>
       <CssBaseline />
       <main>
         <Container sx={{ py: 8, }} maxWidth="md">
           <br></br>
-          <Grid container spacing={12}>
-            <Grid item key={1} xs={12} onClick={() => handleChangeState(1)}>
-              <Card
+          <Grid container spacing={6}>
+            <Grid item key={1} xs={12}>
+              <Card onClick={() => handleChangeState(1)}
                 sx={{ height: '100%', display: 'flex', flexDirection: 'column', 'align-items': 'center' }}
               >
-                <Button fullWidth variant={'outline-light'} sx={{ width: '100%', height: '96px', display: 'flex', backgroundColor: '#ffffff', 'font-weight': 'bold' }}>
+                <Button onClick={() => handleChangeState(1)}  fullWidth variant={'outline-light'} sx={{ width: '100%', height: '96px', display: 'flex', backgroundColor: '#ffffff', 'font-weight': 'bold' }}>
                   <EventNoteIcon sx={{ height: '96px', display: 'flex', 'line-height': '96px', mr: '0.5rem' }} />
-                  <div className='optima'>create an event</div>
+                  <div onClick={() => handleChangeState(1)} className='optima'>create an event</div>
                 </Button>
               </Card>
             </Grid>
           </Grid>
           <br></br>
-          <Grid container spacing={12}>
-            <Grid item key={1} xs={12} onClick={() => handleChangeState(2)}>
-              <Card
+          <Grid container spacing={6}>
+            <Grid item key={2} xs={12}>
+              <Card onClick={() => handleChangeState(2)}
                 sx={{ height: '100%', display: 'flex', flexDirection: 'column', 'align-items': 'center' }}
               >
-                <Button fullWidth variant={'outline-light'} sx={{ width: '100%', height: '96px', display: 'flex', backgroundColor: '#ffffff', 'font-weight': 'bold' }}>
-                  <HowToVoteIcon sx={{ height: '96px', display: 'flex', 'line-height': '96px', mr: '0.5rem'}} />
-                  <div className='optima'>create a poll</div>
+                <Button onClick={() => handleChangeState(2)} fullWidth variant={'outline-light'} sx={{ width: '100%', height: '96px', display: 'flex', backgroundColor: '#ffffff', 'font-weight': 'bold' }}>
+                  <HowToVoteIcon sx={{ height: '96px', display: 'flex', 'line-height': '96px', mr: '0.5rem' }} />
+                  <div onClick={() => handleChangeState(2)} className='optima'>create a poll</div>
                 </Button>
               </Card>
             </Grid>
           </Grid>
           <br></br>
-          <Grid container spacing={12}>
-            <Grid item key={1} xs={12} onClick={() => handleChangeState(3)}>
-              <Card
+          <Grid container spacing={6}>
+            <Grid item key={3} xs={12}>
+              <Card onClick={() => handleChangeState(3)}
                 sx={{ height: '100%', display: 'flex', flexDirection: 'column', 'align-items': 'center' }}
               >
-                <Button fullWidth variant={'outline-light'} sx={{ width: '100%', height: '96px', display: 'flex', backgroundColor: '#ffffff', 'font-weight': 'bold' }}>
-                  <CalendarMonthIcon sx={{ height: '96px', display: 'flex', 'line-height': '96px', mr: '0.5rem'}} />
-                  <div className='optima'>decide the time</div>
+                <Button onClick={() => handleChangeState(3)} fullWidth variant={'outline-light'} sx={{ width: '100%', height: '96px', display: 'flex', backgroundColor: '#ffffff', 'font-weight': 'bold' }}>
+                  <CalendarMonthIcon sx={{ height: '96px', display: 'flex', 'line-height': '96px', mr: '0.5rem' }} />
+                  <div onClick={() => handleChangeState(3)} className='optima'>decide the time</div>
                 </Button>
               </Card>
             </Grid>
           </Grid>
           <br></br>
-          <Grid container spacing={12}>
-            <Grid item key={1} xs={12} onClick={() => handleChangeState(4)}>
-              <Card
-                sx={{ height: '100%', display: 'flex', flexDirection: 'column', 'align-items': 'center' }}
-              >
-                <Button fullWidth variant={'outline-light'} sx={{ width: '100%', height: '96px', display: 'flex', backgroundColor: '#ffffff', 'font-weight': 'bold' }}>
-                  <CalendarMonthIcon sx={{ height: '96px', display: 'flex', 'line-height': '96px', mr: '0.5rem'}} />
-                  <div className='optima'>user decide the time</div>
-                </Button>
-              </Card>
-            </Grid>
-          </Grid>
         </Container>
       </main>
       {/* <Footor/> */}

@@ -32,7 +32,7 @@ const Days = ({
                     (availableDay.includes(id))? "available days" : 
                     (uncertainDay.includes(id))? "uncertain days" : 
                     (unavailableDay.includes(id))? "unavailable days" : "days" : "disabled days"
-                } id={id} onClick={(ableDay.includes(id))? handleUserClickOnDay : () => {}}>
+                } id={id}>
                 <p className="day">{day}</p>
             </li>
         ))
